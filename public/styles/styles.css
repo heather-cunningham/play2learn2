@@ -1,0 +1,670 @@
+/* Global Styles, Homepage Styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+body {
+  position: relative;
+  background-image: url("../images/alpha_numbers_bgImg_1920x1920.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  background-blend-mode: lighten;
+  z-index: -1;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255, 45%);
+}
+
+img#logo {
+  width: 4rem;
+  height: auto;
+  margin-top: 0.3rem;
+  margin-left: 1.2rem;
+  padding: 0;
+  float: left;
+}
+
+#logo a {
+  text-decoration: none;
+}
+
+/* pseudo-element to maintain logo positioning */
+div#logo-div::after {
+  content: " ";
+  clear: both;
+  display: block;
+}
+
+ul#top-nav {
+  position: absolute;
+  min-width: 25rem;
+  float: right;
+  clear: left;
+  top: 1rem;
+  right: 2.4rem;
+  font-size: larger;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+ul#top-nav, ul#top-sub-nav-games, #social-media-list {
+  list-style: none;
+}
+
+li#top-nav-games {
+  position: relative;
+}
+
+ul#top-nav li, ul#social-media-list li {
+  display: inline-block;
+}
+
+#top-nav li {
+  margin: 0 0 0 0.3rem;
+  padding: 0 0 0 0.3rem;
+}
+
+/* Games Sub Nav */
+ul#top-sub-nav-games {
+  position: absolute;
+  top: 1.5rem;
+  left: -1.5rem;
+  background-color: #FFFFFF;
+  border-radius: 1rem;
+  box-shadow: 0 0 3px 3px #FFFFFF;
+}
+
+ul#top-sub-nav-games li {
+  width: 10rem;
+  margin: 0 0 0.15rem;
+  padding: 0 0 0.15rem;
+  font-size: smaller;
+}
+
+a {
+  color: darkblue;
+}
+
+nav a, .game-title a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: darkmagenta;
+}
+
+a:hover {
+  color:blue;
+}
+
+a:active, a.active {
+  color:blue;
+}
+
+#top-nav a:hover, 
+#top-nav a:active, 
+#top-sub-nav-games a:hover,
+ #top-sub-nav-games a:active,
+.game-title a:hover,
+.game-title a:active {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#header-rule {
+  margin: 0.3rem 0;
+}
+
+#header-rule, #footer-rule {
+  width: 100%;
+  padding: 0;
+  border: 1px solid darkgray;
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+#site-welcome-div, #testimonial-div {
+  text-align: center;
+}
+
+#site-welcome-div, .site-page-div {
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFFFFF;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
+}
+
+#site-welcome-div {
+  min-height: 11rem;
+}
+
+.site-page-div {
+  min-height: 100%;
+}
+
+#site-welcome-div > p {
+  margin: 0.6rem 1rem 2.3rem;
+  padding: 1rem 1rem 1.5rem;
+}
+
+.site-page-para {
+  margin: 0.6rem auto;
+  padding: 0;
+}
+
+#site-welcome-div > p, .site-page-para {
+  font-size: 1.2rem;
+}
+
+#site-name {
+  margin: 2.3rem 0 1.2rem 0;
+  font-family: cursive;
+  font-size: 3.5rem;
+}
+
+.page-name {
+  margin: 2.3rem 0 1.2rem 0;
+  font-size: 2.75rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+#about, #disclaimer {
+  clear: both;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.disclaimer {
+  color: red;
+}
+
+#under-construction-image {
+  width: 65%;
+  height: 65%;
+  margin-left: 12%;
+}
+ 
+#games-table {
+  width: 75%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.game-card {
+  position: relative;
+  max-width: 33rem;
+  min-width: 19rem;
+  height: auto;
+  flex: 1;
+  margin: 1.3rem;
+  padding: 0.6rem 0.6rem 3rem;
+  background-color: floralwhite;
+  border: 1px solid grey;
+  border-radius: 0.6rem;
+  box-shadow: 0.6rem 0.6rem 0.6rem lightgrey;
+}
+
+.game-card h3, .game-card p {
+  text-align: center;
+}
+
+h3.game-title {
+  font-family: cursive; 
+  font-size: 2rem;
+}
+
+.play-btn-div {
+  display: flex;
+  position: absolute;
+  width: 6rem;
+  height: 2.5rem;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: flex-end;
+  justify-content: center;
+}
+
+button, input, select, option, textarea {
+  cursor: pointer;
+}
+
+button[name="play"],
+button[name="send"],
+button[name="login"],
+button[name="register"],
+button[name="math-facts-go"],
+button[name="again"] {
+  height: 2.5rem;
+  padding: 0.3rem;
+  color: white;
+  background-color: green;
+  font-weight: bold;
+  font-size: larger;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
+button[name="play"],
+button[name="send"],
+button[name="login"],
+button[name="math-facts-go"] {
+  width: 6rem;
+}
+
+button[name="register"],
+button[name="again"] {
+  width: 8rem;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+button:active {
+  background-color: gray;
+  border: 2px inset white;
+}
+
+button a {
+  color: white;
+  text-decoration: none;
+}
+
+button a:active, button a:hover, button a:visited {
+  color: white;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+#testimonial-div {
+  width: 65%;
+  min-width: 24rem;
+  height: auto;
+  margin: 2rem auto;
+  border: 0.5rem dotted cornflowerblue;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+#testimonial-div h2 {
+  margin-bottom: 0;
+}
+
+.testimonial-quote:not(cite) {
+  color:darkblue;
+  font-style: italic;
+}
+
+cite {
+  font-size: smaller;
+  color: black;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+#footer-div {
+  width: 100%;
+  height: auto;
+  font-size: smaller;
+}
+
+#footer-rule {
+  margin: 1rem 0 0.3rem 0;
+  padding: 0;
+}
+
+#copyright-design, #social-media-list {
+  font-size: smaller;
+}
+
+#copyright-design {
+  margin: 0.3rem 0.3rem 0.3rem 1.2rem;
+  float: left;
+}
+
+#social-media-list {
+  margin: 0 1rem 0 0.3rem;
+  float: right;
+  font-weight: bold;
+}
+
+#social-media-list li {
+  margin-right: 1.5rem;
+}
+
+#social-media-list a, i, a i, a:visited i {
+  text-decoration: none;
+  font-size: 2.25rem;
+  color: black;
+}
+
+ul#mobile-side-nav, #mobile-menu-icon-div {
+  display: none;
+}
+
+/* ------------------------------------ Media Queries for Mobile Responsiveness -------------------------------  */
+
+/* BEGIN @media (max-width: 1370px) 
+~ Landscape width of a 13" Surface Pro tablet or an iPad Pro */
+@media (max-width: 1370px) {
+  * {
+    box-sizing: border-box;
+  }  
+
+  header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #header-rule {
+    margin: 0.3rem 0;  
+  }
+
+  #header-rule, #footer-rule { 
+    width: 100%; 
+    padding: 0; 
+    border: 1px solid darkgray; 
+  }
+
+  #footer-rule {
+    margin: 1rem 0 0.3rem 0;
+  }
+
+  ul#top-nav {
+    display: none;
+  }
+
+  #mobile-menu-icon-div {
+    position: absolute;
+    top: 0.5rem;
+    right: 2.4rem;
+  }  
+  
+  #mobile-menu-btn {
+    width: 6.6rem;
+    height: 3.67rem;
+    background-color: floralwhite;
+    border: 1px solid gray;
+    border-radius: 0.22rem;
+    box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
+    cursor: pointer;
+  }
+
+  /* Mobile Menu */
+  ul#mobile-side-nav {
+    display: none;
+    position: absolute;
+    width: 6.6rem;
+    height: auto;
+    margin: 0;
+    padding: 0.33rem;
+    top: 4.8rem;
+    right: 2.4rem;
+    font-size: larger;
+    font-weight: bold;
+    font-family: cursive;
+    text-align: right;
+    list-style: none;
+    background-color: floralwhite;
+    border: 1px solid grey;
+    border-radius: 0.22rem;
+    box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
+    z-index: 2;
+  }
+
+  ul#mobile-side-nav li {
+    margin: 1rem 0.33rem;
+    padding: 0.22rem;
+  }
+
+  /* Games Mobile Sub Nav */
+  ul#mobile-sub-nav-games {
+    display: none;
+    position: absolute;
+    width: 6rem;
+    height: auto;
+    margin: 0;
+    padding: 0.33rem;
+    top: 4.2rem;
+    right: 6rem;
+    list-style: none;
+    font-size: 0.95rem;
+    background-color: floralwhite;
+    border: 1px solid grey;
+    border-radius: 0.22rem;
+    box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
+  }
+
+  ul#mobile-sub-nav-games li {
+    margin: 0.33rem;
+    padding: 0.33rem;
+  }
+
+  .active, .hover {
+    color:blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .game-card {
+    padding-bottom: 4rem;
+  }
+
+  .play-btn-div {
+    width: 6rem;
+    height: 2.5rem;
+    bottom: 1rem;
+  }
+
+  button[name="play"] {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: larger;
+  }
+
+  #testimonial-div > h2 {
+    font-size: 1.5rem;
+  }
+
+  #social-media-list {
+    margin-bottom: 1.33rem; 
+  }
+} 
+/* END @media (max-width: 1370px) */
+
+
+/* BEGIN @media (max-width: 768px) 
+~ Screen width in portrait mode of iPad Mini */
+@media (max-width: 768px) {
+  #mobile-menu-icon-div {
+    right: 0.75rem;
+  }
+
+  ul#mobile-side-nav {
+    right: 0.75rem;
+  }
+
+  #games-table {
+    width: 55%;
+  }
+
+  .game-card {
+    min-width: 15rem;
+  }
+
+  #copyright-design {
+    margin-left: 0.95rem;
+  }
+
+  #social-media-list {
+    margin: 0.33rem 0 0.67rem 0;
+    padding-left: 0.95rem;
+    float: left;
+    clear: left;
+  }
+}
+/*  END @media (max-width: 768px) 
+~ Screen width in portrait mode of iPad Mini & Surface Duo - unfolded */
+
+
+/* BEGIN @media (max-width: 540px) 
+~ Screen width in portrait mode of iPhone 16 Pro Max & Samsung Galaxy Ultra 24 */
+@media (max-width: 540px) {
+  * {
+    box-sizing: border-box;
+  }  
+
+  html, body {
+    font-size: 16px;
+  }
+
+  header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #mobile-menu-icon-div {
+    right: 0.75rem;
+  }
+
+  ul#mobile-side-nav {
+    right: 0.75rem;
+  }
+
+  img#logo {
+    margin-left: 0.75rem;
+  }
+
+  #header-rule {
+    margin: 0.3rem 0;  
+  }
+
+  #header-rule, #footer-rule { 
+    width: 100%; 
+    padding: 0; 
+    border: 1px solid darkgray; 
+  }
+
+  #footer-rule {
+    margin: 1rem 0 0.3rem 0;
+  }
+  
+  #site-name {
+    font-family: cursive;
+    font-size: 2.5rem;
+  }
+
+  .page-name {
+    font-size: 2.5rem;
+  }
+
+  #site-welcome-div > p {
+    display: none;
+  }
+
+  #site-welcome-div {
+    min-height: 2.89rem;
+  }
+
+  h3 {
+    margin: 0.67rem 0;
+  }
+
+  .site-page-div > p {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  #games-table {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin: 0 auto 4rem auto;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .game-card {
+    max-width: 17rem;
+    min-width: 9rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 0.67rem 4rem;
+  }
+
+  .play-btn-div {
+    width: 6rem;
+    height: 2.5rem;
+    bottom: 1rem;
+  }
+
+  button[name="play"] {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: larger;
+  }
+  
+  #testimonial-div {
+    display: none;
+  }
+
+  #copyright-design {
+    margin-left: 0.95rem;
+  }
+
+  #social-media-list {
+    margin: 0.33rem 0 0.67rem 0;
+    padding-left: 0.95rem;
+    float: left;
+    clear: left;
+  }
+}
+/* END @media (max-width: 540px) */
