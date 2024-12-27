@@ -144,11 +144,13 @@ main {
   padding-bottom: 4rem;
 }
 
-#site-welcome-div, #testimonial-div {
-  text-align: center;
+#site-welcome-div {
+  background-color: #FFFFFF;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
 }
 
-#site-welcome-div, .site-page-div {
+.site-page-div {
   width: 75%;
   height: auto;
   margin-left: auto;
@@ -166,17 +168,12 @@ main {
   min-height: 100%;
 }
 
-#site-welcome-div > p {
-  margin: 0.6rem 1rem 2.3rem;
-  padding: 1rem 1rem 1.5rem;
-}
-
 .site-page-para {
   margin: 0.6rem auto;
   padding: 0;
 }
 
-#site-welcome-div > p, .site-page-para {
+#welcome-msg, .site-page-para {
   font-size: 1.2rem;
 }
 
@@ -215,50 +212,18 @@ h3 {
   height: 65%;
   margin-left: 12%;
 }
- 
-#games-table {
-  width: 75%;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
 
 .game-card {
-  position: relative;
-  max-width: 33rem;
-  min-width: 19rem;
   height: auto;
-  flex: 1;
-  margin: 1.3rem;
-  padding: 0.6rem 0.6rem 3rem;
   background-color: floralwhite;
   border: 1px solid grey;
   border-radius: 0.6rem;
   box-shadow: 0.6rem 0.6rem 0.6rem lightgrey;
 }
 
-.game-card h3, .game-card p {
-  text-align: center;
-}
-
 h3.game-title {
   font-family: cursive; 
   font-size: 2rem;
-}
-
-.play-btn-div {
-  display: flex;
-  position: absolute;
-  width: 6rem;
-  height: 2.5rem;
-  bottom: 0.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  align-items: flex-end;
-  justify-content: center;
 }
 
 button, input, select, option, textarea {
@@ -317,18 +282,15 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 #testimonial-div {
-  width: 65%;
-  min-width: 24rem;
-  height: auto;
-  margin: 2rem auto;
   border: 0.5rem dotted cornflowerblue;
   border-radius: 8rem;
   box-shadow: 0 0 1rem 1rem #FFFFFF;
   background-color: #FFFFFF;
 }
 
-#testimonial-div h2 {
-  margin-bottom: 0;
+#testimonial-header {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .testimonial-quote:not(cite) {
@@ -491,25 +453,11 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
     color:blue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-
-  .game-card {
-    padding-bottom: 4rem;
-  }
-
-  .play-btn-div {
-    width: 6rem;
-    height: 2.5rem;
-    bottom: 1rem;
-  }
-
+  
   button[name="play"] {
     width: 6rem;
     height: 2.5rem;
     font-size: larger;
-  }
-
-  #testimonial-div > h2 {
-    font-size: 1.5rem;
   }
 
   #social-media-list {
@@ -529,15 +477,7 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
   ul#mobile-side-nav {
     right: 0.75rem;
   }
-
-  #games-table {
-    width: 55%;
-  }
-
-  .game-card {
-    min-width: 15rem;
-  }
-
+  
   #copyright-design {
     margin-left: 0.95rem;
   }
@@ -604,8 +544,8 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
   .page-name {
     font-size: 2.5rem;
   }
-
-  #site-welcome-div > p {
+  
+  #welcome-msg {
     display: none;
   }
 
@@ -621,31 +561,7 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
     font-size: 1rem;
     margin: 0;
   }
-
-  #games-table {
-    width: 100%;
-    height: auto;
-    display: flex;
-    margin: 0 auto 4rem auto;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .game-card {
-    max-width: 17rem;
-    min-width: 9rem;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 0.67rem 4rem;
-  }
-
-  .play-btn-div {
-    width: 6rem;
-    height: 2.5rem;
-    bottom: 1rem;
-  }
-
+  
   button[name="play"] {
     width: 6rem;
     height: 2.5rem;

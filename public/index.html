@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
 
     <script src="https://kit.fontawesome.com/5edc2e2a09.js" crossorigin="anonymous"></script>
@@ -94,29 +95,33 @@
       </header>
 
       <main>
-        <div id="site-welcome-div">
-          <h1 id="site-name">Play2Learn</h1>
-          <p>
-            Welcome to Play2Learn!  Practice your maths, spelling, and reading skills while having fun!
-          </p>
+        <div id="site-welcome-div" class="row w-75 h-auto mx-auto">
+          <div class="col-md-8 col-sm-12 mx-auto text-center">
+            <h1 id="site-name" class="fw-bold">Play2Learn</h1>
+            <p id="welcome-msg">
+              Welcome to Play2Learn!  Practice your maths, spelling, and reading skills while having fun!
+            </p>
+          </div>
         </div>
 
-        <div id="games-table">
-          <div id="math-facts-div" class="game-card">
-            <h3 class="game-title">
-              <a href="./games/math-facts/math-facts.html" 
-                alt="Play the Math Facts game"
-                title="Play the Math Facts game">
+        <div id="games-table" class="row w-75 h-auto mx-auto d-flex justify-content-evenly">
+          <div id="math-facts-div" class="game-card col-md-5 col-sm-12 mx-auto my-2 card d-flex flex-column justify-content-between">
+            <h3 class="game-title mx-auto mt-4 mb-3 fw-bold text-center">
+              <a href="./games/math-facts/math-facts.html"
+                 alt="Play the Math Facts game"
+                 title="Play the Math Facts game">
                 Math Facts
               </a>
             </h3>
-            <p>Practice your math skills with our fun, interactive, arithmetic skills game!</p>
-            <div class="play-btn-div">
+            <p class="mx-auto my-1 text-center">
+              Practice your math skills with our fun, interactive, arithmetic skills game!
+            </p>
+            <div class="play-btn-div mx-auto my-4 d-flex justify-content-center">
               <button id="math-facts-play-btn"
-                alt="Play the Math Facts game"
-                name="play" 
-                type="button" 
-                value="Play">
+                      alt="Play the Math Facts game"
+                      name="play"
+                      type="button"
+                      value="Play">
                 <a href="./games/math-facts/math-facts.html">
                   Play
                 </a>
@@ -124,16 +129,18 @@
             </div>
           </div>
           
-          <div id="anagram-hunt-div" class="game-card">
-            <h3 class="game-title">
+          <div id="anagram-hunt-div" class="game-card col-md-5 col-sm-12 mx-auto my-2 card d-flex flex-column justify-content-between">
+            <h3 class="game-title mx-auto mt-4 mb-3 fw-bold text-center">
               <a href="./games/anagram-hunt/anagram-hunt.html" 
                 alt="Play Anagram Hunt Game" 
                 title="Play Anagram Hunt Game">
                 Anagram Hunt
               </a>
             </h3>
-            <p>See how many words you can create with Anagram Hunt! Can you beat our top score?</p>
-            <div class="play-btn-div">
+            <p class="mx-auto my-1 text-center">
+              See how many words you can create with Anagram Hunt! Can you beat our top score?
+            </p>
+            <div class="play-btn-div mx-auto my-4 d-flex justify-content-center">
               <button id="anagram-hunt-play-btn"
                 alt="Play Anagram Hunt Game" 
                 name="play" 
@@ -145,9 +152,11 @@
           </div>
         </div>
 
-        <div id="testimonial-div">
-          <h2>Happy clients say...</h2>
-          <blockquote id="" class="testimonial-quote" name="testimonial-quote"></blockquote>
+        <div id="testimonial-div" class="row w-75 mx-auto my-5">
+          <div class="col-md-12 col-sm-12">
+            <h2 id="testimonial-header" class="mx-auto my-2 px-auto py-1 text-center">Happy clients say...</h2>
+            <blockquote id="" class="testimonial-quote text-center" name="testimonial-quote"></blockquote>
+          </div>
         </div>
       </main>
 
