@@ -131,3 +131,4 @@ dist
 # JetBrains / WebStorm
 .idea/
 .idea/workspace.xml
+public/styles/bootstrap/
