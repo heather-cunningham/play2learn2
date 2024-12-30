@@ -1,12 +1,16 @@
 <template>
-
+  <StartScreen />
 </template>
 
 <script>
 import {defineComponent} from 'vue';
+import StartScreen from "@/components/StartScreen.vue";
 
 export default defineComponent({
-  name: "MainContainer"
+  name: "MainContainer",
+  components: {
+    StartScreen,
+  },
 });
 </script>
 

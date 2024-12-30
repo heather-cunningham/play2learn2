@@ -1,5 +1,5 @@
 <template>
-
+  <button id="anagram-play-btn" type="button" value="Play">Play!</button>
 </template>
 
 <script>
