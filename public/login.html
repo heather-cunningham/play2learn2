@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="wrapper d-flex flex-column min-vh-100">
     <header>
       <nav class="navbar navbar-light bg-transparent navbar-expand-md">
         <div class="container-fluid">
@@ -85,8 +85,8 @@
       </nav>
       <hr id="header-rule" />
     </header>
-
-    <main>
+    
+    <main class="flex-grow-1">
       <div id="login-form-div" class="site-page-div">
         <h2 class="page-name">Login</h2>
 
@@ -197,51 +197,54 @@
         </form>
       </div>
     </main>
-
-    <footer>
-      <hr id="footer-rule" />
-      <div id="footer-div">
-        <p id="copyright-design">
-          <span style="font-weight: bold;">&copy; 2024 Play2Learn</span>
-          &nbsp;&verbar;&nbsp;
-          <cite>Website by
-            <a href="https://github.com/heather-cunningham" alt="See my GitHub portfolio" title="See my GitHub portfolio"
-              target="_blank">
-              Heather I. Cunningham
-            </a>
-          </cite>
-        </p>
-
-        <ul id="social-media-list">
-          <li>
-            <a href="./contact-us.html" alt="Contact Play2Learn" title="Contact Us">
-              <i class="fa-solid fa-square-envelope"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://instagram.com" alt="Open Instagram in a new window" title="Instagram" target="_blank">
-              <i class="fa-brands fa-square-instagram"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com" alt="Open X, formerly known as Twitter, in a new window" title="X (fka Twitter)"
-              target="_blank">
-              <i class="fa-brands fa-square-x-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://facebook.com" alt="Open facebook in a new window" title="facebook" target="_blank">
-              <i class="fa-brands fa-square-facebook"></i>
-            </a>
-          </li>
-        </ul>
+    
+    <footer class="mt-auto">
+      <hr id="footer-rule" class="my-0"/>
+      
+      <div id="footer-div" class="d-flex row w-100 mx-0 justify-content-between">
+        <div class="col-md-5 col-sm-12 mt-2 me-0 ms-2 px-0">
+          <p id="copyright-design" class="mb-1">
+            <span class="fw-bold">&copy; 2024 Play2Learn</span>
+            &nbsp;&verbar;&nbsp;
+            <cite>Website by
+              <a href="https://github.com/heather-cunningham" alt="See my GitHub portfolio" title="See my GitHub portfolio" target="_blank">
+                Heather I. Cunningham
+              </a>
+            </cite>
+          </p>
+        </div>
+        
+        <div class="col-md-6 col-sm-12 mx-0 my-0 px-0">
+          <ul id="social-media-list" class="mb-0 ms-2 px-0">
+            <li>
+              <a href="./contact-us.html" alt="Contact Play2Learn" title="Contact Us">
+                <i class="fa-solid fa-square-envelope"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" alt="Open Instagram in a new window" title="Instagram" target="_blank">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://x.com" alt="Open X, formerly known as Twitter, in a new window" title="X (fka Twitter)" target="_blank">
+                <i class="fa-brands fa-square-x-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://facebook.com" alt="Open facebook in a new window" title="facebook" target="_blank">
+                <i class="fa-brands fa-square-facebook"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   </div>
   
   <script src="./scripts/scripts.js"></script>
   <script src="./scripts/login-register-scripts.js"></script>
-  <script src="styles/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./styles/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
