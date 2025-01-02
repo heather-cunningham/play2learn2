@@ -7,48 +7,30 @@
   font-size: 0.65rem;
 }
 
-form {
-  width: 99%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-fieldset {
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: start;
-  margin-bottom: 2.5rem;
+form.card {
   background-color: floralwhite;
   border: 1px solid grey;
   border-radius: 0.6rem;
   box-shadow: 0.6rem 0.6rem 0.6rem lightgrey;
 }
 
-fieldset label {
-  display: block;
-  width: 95%;
-  height: auto;
-  margin: 1rem auto 0.33rem auto;
-  font-weight: bold;
-}
-
-fieldset input, #age-verification-div {
+#form-content {
   width: 95%;
 }
 
-fieldset input, fieldset textarea, #age-verification-div {
+form input, form textarea {
+  border: 1px solid gray !important;
+}
+
+form textarea {
+  height: 8rem;
+}
+
+#age-verification-div {
+  width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-
-fieldset textarea {
-  width: 95%;
-  height: 8rem;
 }
 
 #create-password-lbl {
@@ -80,23 +62,19 @@ fieldset textarea {
 }
 
 label.error {
-  width: 80%;
-  margin: 1rem 0.17rem 0.17rem 1.2rem;
   font-weight: bold;
   font-style: italic;
   color: red;
 }
 
 div.error {
-  width: 75%;
-  margin: 0.17rem 0 0.17rem 1.2rem;
   font-weight: normal;
   font-size: 0.8rem;
   font-style: italic;
   color: red;
 }
 
-#send-msg-btn-div, #login-btn-div, #register-btn-div  {
+#login-btn-div, #register-btn-div  {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -142,8 +120,6 @@ div.error {
 }
 
 #contact-disclaimer {
-  font-weight: bold;
-  font-style: italic;
   color: red;
 }
 
