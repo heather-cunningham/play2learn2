@@ -123,6 +123,7 @@ a:active, a.active {
 .site-page-div {
   width: 75%;
   height: auto;
+  min-height: 100%;
   margin-left: auto;
   margin-right: auto;
   background-color: #FFFFFF;
@@ -132,10 +133,6 @@ a:active, a.active {
 
 #site-welcome-div {
   min-height: 11rem;
-}
-
-.site-page-div {
-  min-height: 100%;
 }
 
 .site-page-para {
@@ -156,6 +153,7 @@ a:active, a.active {
 .page-name {
   margin: 2.3rem 0 1.2rem 0;
   font-size: 2.75rem;
+  font-weight: bold;
   text-align: center;
 }
 
