@@ -86,24 +86,37 @@
     <hr id="header-rule" />
   </header>
   
-  <h2 class="page-name">Math Facts</h2>
+  <div class="row">
+    <div class="col-12">
+      <h2 class="page-name">Math Facts</h2>
+    </div>
+  </div>
   
   <main class="flex-grow-1">
     <!-- START the start Screen - Math Facts -->
-    <div id="math-facts-start" class="site-page-div w-75 mx-auto">
-      <p class="game-description">
-        This game is for practicing arithmetic operations:
-      </p>
-      <p class="game-description">
-        Addition, subtraction, multiplication, or division.
-      </p>
+    <div id="math-facts-start" class="site-page-div col-12 w-75 mx-auto">
+      <div class="row">
+        <div class="col-12">
+          <p class="game-description">
+            This game is for practicing arithmetic operations:
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="game-description">
+            Addition, subtraction, multiplication, or division.
+          </p>
+        </div>
+      </div>
       
-      <label id="math-facts-select-lbl" for="math-facts-select">
+      <label id="math-facts-select-lbl" for="math-facts-select" class="form-label d-block mx-auto my-3">
         Which arithmetic operation would you like to practice?
       </label>
       
-      <div id="math-facts-select-div" class="game-select-div">
-        <select id="math-facts-select" class="game-select" name="game-selection" required>
+      <div id="math-facts-select-div"
+           class="game-select-div mx-auto d-flex justify-content-center align-items-center flex-wrap">
+        <select id="math-facts-select" class="game-select w-auto mx-2 px-2" name="game-selection" required>
           <option value="0" selected>Please, select one*</option>
           <option value="Addition">Addition</option>
           <option value="Subtraction">Subtraction</option>
@@ -112,7 +125,7 @@
         </select>
         
         <button id="math-facts-go-btn"
-                class="go-btn"
+                class="go-btn btn mx-2"
                 type="button"
                 name="math-facts-go"
                 value="Go">
