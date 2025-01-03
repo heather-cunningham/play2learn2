@@ -14,7 +14,7 @@ form.card {
   box-shadow: 0.6rem 0.6rem 0.6rem lightgrey;
 }
 
-#form-content {
+.form-content {
   width: 95%;
 }
 
@@ -75,13 +75,13 @@ div.error {
 }
 
 #login-btn-div, #register-btn-div  {
-  display: flex;
+  /*display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  width: 95%;
+  flex-wrap: wrap;*/
+  /*width: 95%;*/
   height: 2.5rem;
-  margin: 2rem auto;
-  justify-content: space-between;
+  /*margin: 2rem auto;*/
+  /*justify-content: space-between;*/
 }
 
 #send-msg-btn, #reset-form-btn, #login-btn, #reset-register-form-btn {
@@ -101,13 +101,13 @@ div.error {
 }
 
 #register-link-div, #login-link-div {
-  display: flex;
+  /*display: flex;
   width: 95%;
-  height: auto;
-  margin: 0 auto 1rem auto;
-  flex-direction: row;
+  height: auto;*/
+  /*margin: 0 auto 1rem auto;*/
+  /*flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: start;*/
 }
 
 #reset-form-btn:active, #reset-register-form-btn:active {
@@ -152,12 +152,13 @@ div.error {
   }
 
   #login-btn-div  {
-    width: 93%;
+    /*width: 93%;*/
     height: 2.5rem;
-    margin: 2.4rem auto;
+    /*margin: 2.4rem auto;*/
   }
 
-  #register-link-div, #login-link-div {
+  /*#register-link-div,*/
+  #login-link-div {
     width: 93%;
     margin: 0.5rem auto 1.8rem auto;
   }
