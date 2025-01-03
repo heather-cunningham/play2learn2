@@ -26,34 +26,9 @@ form textarea {
   height: 8rem;
 }
 
-#age-verification-div {
-  width: 95%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#create-password-lbl {
-  margin-top: 3rem;
-}
-
-#age-verification-div {
-  margin-top: 1.5rem;
-}
-
-#age-verification-ckbx, #age-verification-lbl {
-  display: inline-block;
-}
-
 #age-verification-ckbx {
   width: 1.5rem;
   height: 1.5rem;
-  margin-left: -0.17rem;
-}
-
-#age-verification-lbl {
-  margin-left: 0.33rem;
-  font-weight: normal;
 }
 
 .required::after {
@@ -75,13 +50,7 @@ div.error {
 }
 
 #login-btn-div, #register-btn-div  {
-  /*display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;*/
-  /*width: 95%;*/
   height: 2.5rem;
-  /*margin: 2rem auto;*/
-  /*justify-content: space-between;*/
 }
 
 #send-msg-btn, #reset-form-btn, #login-btn, #reset-register-form-btn {
@@ -98,16 +67,6 @@ div.error {
   border: none;
   border-radius: 0.3rem;
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
-}
-
-#register-link-div, #login-link-div {
-  /*display: flex;
-  width: 95%;
-  height: auto;*/
-  /*margin: 0 auto 1rem auto;*/
-  /*flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: start;*/
 }
 
 #reset-form-btn:active, #reset-register-form-btn:active {
@@ -132,35 +91,9 @@ div.error {
   * {
     box-sizing: border-box;
   }
-
-  fieldset label {
-    width: 93%;
-    margin: 2rem auto 0.33rem auto;
-  }
   
-  fieldset input {
-    width: 93%;
-    height: 2.2rem;
-  }
-
-  #create-password-lbl {
-    margin-top: 2.8rem;
-  }
-
-  #age-verification-div {
-    width: 93%;
-  }
-
   #login-btn-div  {
-    /*width: 93%;*/
     height: 2.5rem;
-    /*margin: 2.4rem auto;*/
-  }
-
-  /*#register-link-div,*/
-  #login-link-div {
-    width: 93%;
-    margin: 0.5rem auto 1.8rem auto;
   }
 }
 /* END @media (max-width: 1370px) 

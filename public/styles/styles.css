@@ -40,7 +40,6 @@ img#logo {
   width: 4rem;
   height: auto;
   margin-top: 0.3rem;
-  margin-left: 1.2rem;
   padding: 0;
   float: left;
 }
@@ -225,6 +224,7 @@ button[name="again"] {
 }
 
 button:hover {
+  color: white !important;
   background-color: gray;
 }
 
