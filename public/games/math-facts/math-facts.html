@@ -95,14 +95,14 @@
   <main class="flex-grow-1">
     <!-- START the start Screen - Math Facts -->
     <div id="math-facts-start" class="site-page-div col-12 w-75 mx-auto">
-      <div class="row">
+      <div class="row text-center">
         <div class="col-12">
           <p class="game-description">
             This game is for practicing arithmetic operations:
           </p>
         </div>
       </div>
-      <div class="row">
+      <div class="row text-center">
         <div class="col-12">
           <p class="game-description">
             Addition, subtraction, multiplication, or division.
@@ -110,12 +110,12 @@
         </div>
       </div>
       
-      <label id="math-facts-select-lbl" for="math-facts-select" class="form-label d-block mx-auto my-3">
+      <label id="math-facts-select-lbl" for="math-facts-select" class="form-label d-block mx-auto mb-4 text-center">
         Which arithmetic operation would you like to practice?
       </label>
       
-      <div id="math-facts-select-div"
-           class="game-select-div mx-auto d-flex justify-content-center align-items-center flex-wrap">
+      <div id="math-facts-select-div" class="game-select-div mx-auto mb-lg-5 mb-md-4
+       mb-sm-2 d-flex justify-content-center align-items-center flex-wrap">
         <select id="math-facts-select" class="game-select w-auto mx-2 px-2" name="game-selection" required>
           <option value="0" selected>Please, select one*</option>
           <option value="Addition">Addition</option>
@@ -133,13 +133,15 @@
         </button>
       </div>
       
-      <div class="game-rules-list-div">
+      <div class="game-rules-list-div col-12 mx-auto mb-4">
         <ol class="game-rules-list">
           <li>Select an arithmetic operation to practice.</li>
           <li>Press "<strong>Go!</strong>"</li>
           <li>How many problems can you solve in 30 seconds?</li>
         </ol>
-        <cite><span>**NOTE!</span> If selecting Division, decimal point answers should be rounded to the nearest 100ths place at max
+        <cite>
+          <span class="fw-bold">**NOTE! </span>
+          If selecting Division, decimal point answers should be rounded to the nearest 100ths place at max
           (i.e., two digits past the decimal point maximum).
         </cite>
       </div>

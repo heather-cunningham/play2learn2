@@ -72,6 +72,12 @@ const addRemoveErrorOnSelect = ()=>{
     const errorDiv = document.createElement('div');
     errorDiv.innerHTML = `${mathFactsSelect.dataset.errorMsg}`;
     errorDiv.className = 'error';
+    
+    // Add Bootstrap layout and some style classes to the error
+    const classNamesList = ["col-12", "w-50", "h-auto", "mx-auto", "my-2", "p-0", "text-center"];
+    for(let namedClass of classNamesList){
+      errorDiv.classList.add(namedClass);
+    }
     mathFactsSelectDiv.parentNode.insertBefore(errorDiv, mathFactsSelectDiv);
   } else if(mathFactsSelect.selectedIndex !== 0
     && mathFactsSelectDiv.previousElementSibling.className === 'error') {

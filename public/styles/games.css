@@ -2,18 +2,6 @@
   box-sizing: border-box;
 }
 
-.game-description {
-  width: auto;
-  height: auto;
-  margin: 0 auto 0.6rem;
-  padding: 0;
-  font-size: 1.2rem;
-}
-
-p.game-description, #math-facts-select-lbl, .game-select-div {
-  text-align: center;
-}
-
 #math-facts-select-lbl {
   font-size: 1.5rem;
   font-weight: bold;
@@ -29,23 +17,12 @@ p.game-description, #math-facts-select-lbl, .game-select-div {
 }
 
 .game-rules-list-div {
-  width: 45%;
+  width: 50%;
   height: auto;
-  margin: 0 auto 2rem;
-  padding: 0;
 }
 
 .game-rules-list-div cite {
   color: red;
-}
-
-.game-rules-list-div cite > span {
-  font-weight: bold;
-}
-
-.game-rules-list li {
-  margin: 0.67rem;
-  padding: 0.33rem;
 }
 
 .question-answer-div {
@@ -170,14 +147,6 @@ p.game-description, #math-facts-select-lbl, .game-select-div {
 
 /* ------------------------------------ CSS for playing Math Facts operations -------------------------------  */
 div.error {
-  width: auto;
-  height: auto;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
   font-style: italic;
   color: red;
 }
@@ -320,35 +289,7 @@ div#calculator-buttons {
   }
 }  /* END @media (max-width: 1370px) */
 
-/* BEGIN @media (max-width: 1024px)
-~ Portrait width of iPad Pro */
-@media (max-width: 1024px){
-  .game-rules-list-div {
-    width: 75%;
-  }
-  
-  .game-rules-list li {
-    margin: 0.33rem;
-    padding: 0.33rem;
-  }
-}  /* END @media (max-width: 1024px) */
-
-/* BEGIN @media (max-width: 820px)
-~ Screen width in portrait mode of iPad Air */
-@media (max-width: 820px) {
-  .game-rules-list-div {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0;
-  }
-  
-  .game-rules-list li {
-    margin: 0.67rem 0;
-    padding: 0;
-  }
-}  /*  END @media (max-width: 820px) */
-
-/* Custom styles for Bootstrap medium screens and smaller */
+/* Custom styles for Bootstrap medium screens (768px wide) and smaller */
 @media (max-width: 768px) {
   #math-facts-select-div {
     flex-direction: column;
@@ -357,17 +298,20 @@ div#calculator-buttons {
   #math-facts-select, #math-facts-go-btn {
     margin-bottom: 1rem;
   }
+  
+  .game-rules-list-div {
+    width: 75%;
+    height: auto;
+  }
+  
 }
+/* END Custom styles for Bootstrap medium screens (768px wide) and smaller */
 
 /* BEGIN @media (max-width: 932px) and (max-height: 440px):
 ~ Screen width and height in landscape mode of iPhone 14 Pro Max */
 @media (max-width: 932px) and (max-height: 440px) {
   p.game-description {
     display: none;
-  }
-  
-  .game-rules-list-div {
-    margin-bottom: 2.4rem;
   }
 }  /*  END @media (max-width: 932px) and (max-height: 440px) */
 
@@ -376,10 +320,6 @@ div#calculator-buttons {
 @media (max-width: 390px) and (max-height: 845px) {
   p.game-description {
     display: none;
-  }
-  
-  .game-rules-list-div {
-    margin-bottom: 2.4rem;
   }
   
   .answer-input {
