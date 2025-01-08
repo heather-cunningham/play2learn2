@@ -133,5 +133,4 @@ dist
 .idea/workspace.xml
 public/styles/bootstrap/
 anagrams.txt
-public/games/anagram-hunt/anagram-hunt-vue/anagram-hunt/public/styles/styles/bootstrap/
 public/games/anagram-hunt/anagram-hunt-vue/anagram-hunt/public/anagram-styles/anagram-bootstrap/

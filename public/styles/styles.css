@@ -16,15 +16,10 @@ body {
   background-image: url("../images/alpha_numbers_bgImg_1920x1920.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
   background-blend-mode: lighten;
   z-index: -1;
-}
-
-.wrapper {
-  position: relative;
-  min-height: 100%;
 }
 
 header {
@@ -39,7 +34,6 @@ img#logo {
   width: 4rem;
   height: auto;
   margin-top: 0.3rem;
-  margin-left: 1.2rem;
   padding: 0;
   float: left;
 }
@@ -56,26 +50,16 @@ div#logo-div::after {
 }
 
 ul#top-nav {
-  position: absolute;
-  min-width: 25rem;
-  float: right;
-  clear: left;
-  top: 1rem;
-  right: 2.4rem;
   font-size: larger;
   font-weight: bold;
   font-family: cursive;
 }
 
-ul#top-nav, ul#top-sub-nav-games, #social-media-list {
+#social-media-list {
   list-style: none;
 }
 
-li#top-nav-games {
-  position: relative;
-}
-
-ul#top-nav li, ul#social-media-list li {
+ul#social-media-list li {
   display: inline-block;
 }
 
@@ -84,25 +68,8 @@ ul#top-nav li, ul#social-media-list li {
   padding: 0 0 0 0.3rem;
 }
 
-/* Games Sub Nav */
-ul#top-sub-nav-games {
-  position: absolute;
-  top: 1.5rem;
-  left: -1.5rem;
-  background-color: #FFFFFF;
-  border-radius: 1rem;
-  box-shadow: 0 0 3px 3px #FFFFFF;
-}
-
-ul#top-sub-nav-games li {
-  width: 10rem;
-  margin: 0 0 0.15rem;
-  padding: 0 0 0.15rem;
-  font-size: smaller;
-}
-
 a {
-  color: darkblue;
+  color: darkblue !important;
 }
 
 nav a, .game-title a {
@@ -110,15 +77,15 @@ nav a, .game-title a {
 }
 
 a:visited {
-  color: darkmagenta;
+  color: darkmagenta !important;
 }
 
 a:hover {
-  color:blue;
+  color: blue !important;
 }
 
 a:active, a.active {
-  color:blue;
+  color: blue !important;
 }
 
 #top-nav a:hover, 
@@ -127,11 +94,11 @@ a:active, a.active {
  #top-sub-nav-games a:active,
 .game-title a:hover,
 .game-title a:active {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 }
 
 #header-rule {
-  margin: 0.3rem 0;
+  margin: 0;
 }
 
 #header-rule, #footer-rule {
@@ -140,56 +107,31 @@ a:active, a.active {
   border: 1px solid darkgray;
 }
 
-main {
-  padding-bottom: 4rem;
-}
-
-#site-welcome-div, #testimonial-div {
-  text-align: center;
-}
-
-#site-welcome-div, .site-page-div {
-  width: 75%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
+#site-welcome-div {
   background-color: #FFFFFF;
   border-radius: 8rem;
   box-shadow: 0 0 1rem 1rem #FFFFFF;
 }
 
-#site-welcome-div {
-  min-height: 11rem;
-}
-
 .site-page-div {
+  height: auto;
   min-height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
 }
 
-#site-welcome-div > p {
-  margin: 0.6rem 1rem 2.3rem;
-  padding: 1rem 1rem 1.5rem;
-}
-
-.site-page-para {
-  margin: 0.6rem auto;
-  padding: 0;
-}
-
-#site-welcome-div > p, .site-page-para {
+#welcome-msg, .site-page-para {
   font-size: 1.2rem;
 }
 
 #site-name {
-  margin: 2.3rem 0 1.2rem 0;
   font-family: cursive;
   font-size: 3.5rem;
 }
 
 .page-name {
-  margin: 2.3rem 0 1.2rem 0;
   font-size: 2.75rem;
-  text-align: center;
 }
 
 h2 {
@@ -200,65 +142,20 @@ h3 {
   font-size: 1.5rem;
 }
 
-#about, #disclaimer {
-  clear: both;
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
 .disclaimer {
   color: red;
 }
 
-#under-construction-image {
-  width: 65%;
-  height: 65%;
-  margin-left: 12%;
-}
- 
-#games-table {
-  width: 75%;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .game-card {
-  position: relative;
-  max-width: 33rem;
-  min-width: 19rem;
-  height: auto;
-  flex: 1;
-  margin: 1.3rem;
-  padding: 0.6rem 0.6rem 3rem;
   background-color: floralwhite;
   border: 1px solid grey;
   border-radius: 0.6rem;
   box-shadow: 0.6rem 0.6rem 0.6rem lightgrey;
 }
 
-.game-card h3, .game-card p {
-  text-align: center;
-}
-
 h3.game-title {
   font-family: cursive; 
   font-size: 2rem;
-}
-
-.play-btn-div {
-  display: flex;
-  position: absolute;
-  width: 6rem;
-  height: 2.5rem;
-  bottom: 0.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-  align-items: flex-end;
-  justify-content: center;
 }
 
 button, input, select, option, textarea {
@@ -295,6 +192,7 @@ button[name="again"] {
 }
 
 button:hover {
+  color: white !important;
   background-color: gray;
 }
 
@@ -304,12 +202,12 @@ button:active {
 }
 
 button a {
-  color: white;
+  color: white !important;
   text-decoration: none;
 }
 
 button a:active, button a:hover, button a:visited {
-  color: white;
+  color: white !important;
 }
 
 input[type="checkbox"], input[type="radio"] {
@@ -317,18 +215,16 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 #testimonial-div {
-  width: 65%;
-  min-width: 24rem;
-  height: auto;
-  margin: 2rem auto;
   border: 0.5rem dotted cornflowerblue;
   border-radius: 8rem;
   box-shadow: 0 0 1rem 1rem #FFFFFF;
   background-color: #FFFFFF;
+  overflow: hidden;
 }
 
-#testimonial-div h2 {
-  margin-bottom: 0;
+#testimonial-header {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .testimonial-quote:not(cite) {
@@ -342,10 +238,9 @@ cite {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  position: relative;
   width: 100%;
-  height: auto;
+  clear: both;
 }
 
 #footer-div {
@@ -354,24 +249,12 @@ footer {
   font-size: smaller;
 }
 
-#footer-rule {
-  margin: 1rem 0 0.3rem 0;
-  padding: 0;
-}
-
 #copyright-design, #social-media-list {
   font-size: smaller;
 }
 
-#copyright-design {
-  margin: 0.3rem 0.3rem 0.3rem 1.2rem;
-  float: left;
-}
-
 #social-media-list {
-  margin: 0 1rem 0 0.3rem;
   float: right;
-  font-weight: bold;
 }
 
 #social-media-list li {
@@ -382,10 +265,6 @@ footer {
   text-decoration: none;
   font-size: 2.25rem;
   color: black;
-}
-
-ul#mobile-side-nav, #mobile-menu-icon-div {
-  display: none;
 }
 
 /* ------------------------------------ Media Queries for Mobile Responsiveness -------------------------------  */
@@ -402,33 +281,16 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
     margin: 0;
     padding: 0;
   }
-
-  #header-rule {
-    margin: 0.3rem 0;  
-  }
-
+  
   #header-rule, #footer-rule { 
     width: 100%; 
     padding: 0; 
     border: 1px solid darkgray; 
   }
-
-  #footer-rule {
-    margin: 1rem 0 0.3rem 0;
-  }
-
-  ul#top-nav {
-    display: none;
-  }
-
-  #mobile-menu-icon-div {
-    position: absolute;
-    top: 0.5rem;
-    right: 2.4rem;
-  }  
   
+  /* Mobile Menu */
   #mobile-menu-btn {
-    width: 6.6rem;
+    width: 3.67rem;
     height: 3.67rem;
     background-color: floralwhite;
     border: 1px solid gray;
@@ -436,121 +298,45 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
     box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
     cursor: pointer;
   }
-
-  /* Mobile Menu */
-  ul#mobile-side-nav {
-    display: none;
-    position: absolute;
-    width: 6.6rem;
-    height: auto;
-    margin: 0;
-    padding: 0.33rem;
-    top: 4.8rem;
-    right: 2.4rem;
-    font-size: larger;
-    font-weight: bold;
-    font-family: cursive;
-    text-align: right;
-    list-style: none;
-    background-color: floralwhite;
-    border: 1px solid grey;
-    border-radius: 0.22rem;
-    box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
-    z-index: 2;
+  
+  #mobile-menu-icon {
+    padding: 0;
+    font-size: 1.5rem;
   }
-
-  ul#mobile-side-nav li {
-    margin: 1rem 0.33rem;
-    padding: 0.22rem;
-  }
-
-  /* Games Mobile Sub Nav */
-  ul#mobile-sub-nav-games {
-    display: none;
-    position: absolute;
-    width: 6rem;
-    height: auto;
-    margin: 0;
-    padding: 0.33rem;
-    top: 4.2rem;
-    right: 6rem;
-    list-style: none;
-    font-size: 0.95rem;
-    background-color: floralwhite;
-    border: 1px solid grey;
-    border-radius: 0.22rem;
-    box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
-  }
-
-  ul#mobile-sub-nav-games li {
-    margin: 0.33rem;
-    padding: 0.33rem;
-  }
-
+  /* END Mobile Menu */
+  
   .active, .hover {
     color:blue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
-
-  .game-card {
-    padding-bottom: 4rem;
-  }
-
-  .play-btn-div {
-    width: 6rem;
-    height: 2.5rem;
-    bottom: 1rem;
-  }
-
+  
   button[name="play"] {
     width: 6rem;
     height: 2.5rem;
     font-size: larger;
   }
-
-  #testimonial-div > h2 {
-    font-size: 1.5rem;
-  }
-
-  #social-media-list {
-    margin-bottom: 1.33rem; 
-  }
 } 
 /* END @media (max-width: 1370px) */
 
 
-/* BEGIN @media (max-width: 768px) 
-~ Screen width in portrait mode of iPad Mini */
-@media (max-width: 768px) {
-  #mobile-menu-icon-div {
-    right: 0.75rem;
+/* BEGIN @media (max-width: 767px)
+~ Screen width in portrait mode bootstrap.js sml */
+@media (max-width: 767px) {
+  .navbar-collapse {
+    text-align: right;
   }
-
-  ul#mobile-side-nav {
-    right: 0.75rem;
+  
+  .navbar-collapse .navbar-nav {
+    float: right;
   }
-
-  #games-table {
-    width: 55%;
-  }
-
-  .game-card {
-    min-width: 15rem;
-  }
-
-  #copyright-design {
-    margin-left: 0.95rem;
-  }
-
+  
   #social-media-list {
-    margin: 0.33rem 0 0.67rem 0;
-    padding-left: 0.95rem;
     float: left;
     clear: left;
   }
 }
-/*  END @media (max-width: 768px) 
-~ Screen width in portrait mode of iPad Mini & Surface Duo - unfolded */
+/*  END @media (max-width: 767px)
+~ Screen width in portrait mode bootstrap.js sml */
 
 
 /* BEGIN @media (max-width: 540px) 
@@ -570,30 +356,14 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
     padding: 0;
   }
 
-  #mobile-menu-icon-div {
-    right: 0.75rem;
-  }
-
-  ul#mobile-side-nav {
-    right: 0.75rem;
-  }
-
   img#logo {
     margin-left: 0.75rem;
-  }
-
-  #header-rule {
-    margin: 0.3rem 0;  
   }
 
   #header-rule, #footer-rule { 
     width: 100%; 
     padding: 0; 
     border: 1px solid darkgray; 
-  }
-
-  #footer-rule {
-    margin: 1rem 0 0.3rem 0;
   }
   
   #site-name {
@@ -604,48 +374,19 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
   .page-name {
     font-size: 2.5rem;
   }
-
-  #site-welcome-div > p {
+  
+  #welcome-msg {
     display: none;
   }
-
-  #site-welcome-div {
-    min-height: 2.89rem;
-  }
-
+  
   h3 {
     margin: 0.67rem 0;
   }
 
   .site-page-div > p {
     font-size: 1rem;
-    margin: 0;
   }
-
-  #games-table {
-    width: 100%;
-    height: auto;
-    display: flex;
-    margin: 0 auto 4rem auto;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .game-card {
-    max-width: 17rem;
-    min-width: 9rem;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0 0.67rem 4rem;
-  }
-
-  .play-btn-div {
-    width: 6rem;
-    height: 2.5rem;
-    bottom: 1rem;
-  }
-
+  
   button[name="play"] {
     width: 6rem;
     height: 2.5rem;
@@ -656,13 +397,7 @@ ul#mobile-side-nav, #mobile-menu-icon-div {
     display: none;
   }
 
-  #copyright-design {
-    margin-left: 0.95rem;
-  }
-
   #social-media-list {
-    margin: 0.33rem 0 0.67rem 0;
-    padding-left: 0.95rem;
     float: left;
     clear: left;
   }
