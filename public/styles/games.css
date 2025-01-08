@@ -4,7 +4,6 @@
 
 #math-facts-select-lbl {
   font-size: 1.5rem;
-  font-weight: bold;
   font-family: cursive;
   color: rgb(224, 18, 128); /* hot pink, but actual hot pink, not the bubble gum pink material calls "hotpink" */
 }
@@ -303,7 +302,6 @@ div#calculator-buttons {
     width: 75%;
     height: auto;
   }
-  
 }
 /* END Custom styles for Bootstrap medium screens (768px wide) and smaller */
 
