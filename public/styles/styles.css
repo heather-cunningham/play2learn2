@@ -167,7 +167,8 @@ button[name="send"],
 button[name="login"],
 button[name="register"],
 button[name="math-facts-go"],
-button[name="again"] {
+button[name="again"],
+button[name="anagram-hunt-play"]{
   height: 2.5rem;
   padding: 0.3rem;
   color: white;
@@ -182,7 +183,8 @@ button[name="again"] {
 button[name="play"],
 button[name="send"],
 button[name="login"],
-button[name="math-facts-go"] {
+button[name="math-facts-go"],
+button[name="anagram-hunt-play"]{
   width: 6rem;
 }
 
