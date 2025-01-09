@@ -1,0 +1,407 @@
+/* Global Styles, Homepage Styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+body {
+  position: relative;
+  background-image: url("../../src/assets/alpha_numbers_bgImg_1920x1920.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  background-blend-mode: lighten;
+  z-index: -1;
+}
+
+header {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255, 45%);
+}
+
+img#logo {
+  width: 4rem;
+  height: auto;
+  margin-top: 0.3rem;
+  padding: 0;
+  float: left;
+}
+
+#logo a {
+  text-decoration: none;
+}
+
+/* pseudo-element to maintain logo positioning */
+div#logo-div::after {
+  content: " ";
+  clear: both;
+  display: block;
+}
+
+ul#top-nav {
+  font-size: larger;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+#social-media-list {
+  list-style: none;
+}
+
+ul#social-media-list li {
+  display: inline-block;
+}
+
+#top-nav li {
+  margin: 0 0 0 0.3rem;
+  padding: 0 0 0 0.3rem;
+}
+
+a {
+  color: darkblue !important;
+}
+
+nav a, .game-title a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: darkmagenta !important;
+}
+
+a:hover {
+  color: blue !important;
+}
+
+a:active, a.active {
+  color: blue !important;
+}
+
+#top-nav a:hover, 
+#top-nav a:active, 
+#top-sub-nav-games a:hover,
+ #top-sub-nav-games a:active,
+.game-title a:hover,
+.game-title a:active {
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+#header-rule {
+  margin: 0;
+}
+
+#header-rule, #footer-rule {
+  width: 100%;
+  padding: 0;
+  border: 1px solid darkgray;
+}
+
+#site-welcome-div {
+  background-color: #FFFFFF;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
+}
+
+.site-page-div {
+  height: auto;
+  min-height: 100%;
+  background-color: #FFFFFF;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
+}
+
+#welcome-msg, .site-page-para {
+  font-size: 1.2rem;
+}
+
+#site-name {
+  font-family: cursive;
+  font-size: 3.5rem;
+}
+
+.page-name {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.disclaimer {
+  color: red;
+}
+
+.game-card {
+  background-color: floralwhite;
+  border: 1px solid grey;
+  border-radius: 0.6rem;
+  box-shadow: 0.6rem 0.6rem 0.6rem lightgrey;
+}
+
+h3.game-title {
+  font-family: cursive; 
+  font-size: 2rem;
+}
+
+button, input, select, option, textarea {
+  cursor: pointer;
+}
+
+button[name="play"],
+button[name="send"],
+button[name="login"],
+button[name="register"],
+button[name="math-facts-go"],
+button[name="again"],
+button[name="anagram-hunt-play"]{
+  height: 2.5rem;
+  padding: 0.3rem;
+  color: white;
+  background-color: green;
+  font-weight: bold;
+  font-size: larger;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
+button[name="play"],
+button[name="send"],
+button[name="login"],
+button[name="math-facts-go"],
+button[name="anagram-hunt-play"]{
+  width: 6rem;
+}
+
+button[name="register"],
+button[name="again"] {
+  width: 8rem;
+}
+
+button:hover {
+  color: white !important;
+  background-color: gray;
+}
+
+button:active {
+  background-color: gray;
+  border: 2px inset white;
+}
+
+button a {
+  color: white !important;
+  text-decoration: none;
+}
+
+button a:active, button a:hover, button a:visited {
+  color: white !important;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  cursor: pointer;
+}
+
+#testimonial-div {
+  border: 0.5rem dotted cornflowerblue;
+  border-radius: 8rem;
+  box-shadow: 0 0 1rem 1rem #FFFFFF;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+#testimonial-header {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.testimonial-quote:not(cite) {
+  color:darkblue;
+  font-style: italic;
+}
+
+cite {
+  font-size: smaller;
+  color: black;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  clear: both;
+}
+
+#footer-div {
+  width: 100%;
+  height: auto;
+  font-size: smaller;
+}
+
+#copyright-design, #social-media-list {
+  font-size: smaller;
+}
+
+#social-media-list {
+  float: right;
+}
+
+#social-media-list li {
+  margin-right: 1.5rem;
+}
+
+#social-media-list a, i, a i, a:visited i {
+  text-decoration: none;
+  font-size: 2.25rem;
+  color: black;
+}
+
+/* ------------------------------------ Media Queries for Mobile Responsiveness -------------------------------  */
+
+/* BEGIN @media (max-width: 1370px) 
+~ Landscape width of a 13" Surface Pro tablet or an iPad Pro */
+@media (max-width: 1370px) {
+  * {
+    box-sizing: border-box;
+  }  
+
+  header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #header-rule, #footer-rule { 
+    width: 100%; 
+    padding: 0; 
+    border: 1px solid darkgray; 
+  }
+  
+  /* Mobile Menu */
+  #mobile-menu-btn {
+    width: 3.67rem;
+    height: 3.67rem;
+    background-color: floralwhite;
+    border: 1px solid gray;
+    border-radius: 0.22rem;
+    box-shadow: 0.22rem 0.22rem 0.22rem lightgrey;
+    cursor: pointer;
+  }
+  
+  #mobile-menu-icon {
+    padding: 0;
+    font-size: 1.5rem;
+  }
+  /* END Mobile Menu */
+  
+  .active, .hover {
+    color:blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  button[name="play"] {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: larger;
+  }
+} 
+/* END @media (max-width: 1370px) */
+
+
+/* BEGIN @media (max-width: 767px)
+~ Screen width in portrait mode bootstrap.js sml */
+@media (max-width: 767px) {
+  .navbar-collapse {
+    text-align: right;
+  }
+  
+  .navbar-collapse .navbar-nav {
+    float: right;
+  }
+  
+  #social-media-list {
+    float: left;
+    clear: left;
+  }
+}
+/*  END @media (max-width: 767px)
+~ Screen width in portrait mode bootstrap.js sml */
+
+
+/* BEGIN @media (max-width: 540px) 
+~ Screen width in portrait mode of iPhone 16 Pro Max & Samsung Galaxy Ultra 24 */
+@media (max-width: 540px) {
+  * {
+    box-sizing: border-box;
+  }  
+
+  html, body {
+    font-size: 16px;
+  }
+
+  header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  img#logo {
+    margin-left: 0.75rem;
+  }
+
+  #header-rule, #footer-rule { 
+    width: 100%; 
+    padding: 0; 
+    border: 1px solid darkgray; 
+  }
+  
+  #site-name {
+    font-family: cursive;
+    font-size: 2.5rem;
+  }
+
+  .page-name {
+    font-size: 2.5rem;
+  }
+  
+  #welcome-msg {
+    display: none;
+  }
+  
+  h3 {
+    margin: 0.67rem 0;
+  }
+
+  .site-page-div > p {
+    font-size: 1rem;
+  }
+  
+  button[name="play"] {
+    width: 6rem;
+    height: 2.5rem;
+    font-size: larger;
+  }
+  
+  #testimonial-div {
+    display: none;
+  }
+
+  #social-media-list {
+    float: left;
+    clear: left;
+  }
+}
+/* END @media (max-width: 540px) */

@@ -28,11 +28,7 @@ export default defineComponent({
 });
 </script>
 
-<style src="../../../../../../styles/normalize.css"></style>
-<style src="../../../../../../styles/styles.css"></style>
-<style src="../../../../../../styles/games.css"></style>
+<style src="../../public/anagram-styles/normalize.css"></style>
+<style src="../../public/anagram-styles/styles.css"></style>
+<style src="../../public/anagram-styles/games.css"></style>
 
-<!--
-<style src="../../../anagram-hunt/public/anagram-styles/anagram-normalize.css"></style>
-<style src="../../../anagram-hunt/public/anagram-styles/anagram-global-style.css"></style>
-<style src="../../../anagram-hunt/public/anagram-styles/anagram-game.css"></style>-->

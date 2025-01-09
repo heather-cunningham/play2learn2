@@ -20,6 +20,6 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-
-</style>
+<style src="../../public/anagram-styles/normalize.css"></style>
+<style src="../../public/anagram-styles/styles.css"></style>
+<style src="../../public/anagram-styles/games.css"></style>

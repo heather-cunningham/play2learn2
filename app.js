@@ -1,20 +1,46 @@
 const express = require("express");
-const { check, validationResult } = require("express-validator");
+const {check, validationResult} = require("express-validator");
 const path = require("path");
+// const mime = require("mime");
 const fs = require("fs");
 const app = express();
 
+// Middleware to set the correct MIME type
+app.use(async (request, result, next)=>{
+  const mime = await import('mime');
+  const type= mime.default.getType(request.path);
+  
+  if(type){
+    result.setHeader("Content-Type", type);
+  }
+  
+  next();
+});
+
+// Serve static files from the Node.js app directory
 app.use(express.static(path.join(__dirname, "public")));
+// Serve static files from the Node.js public styles directory
 app.use('/styles', express.static(path.join(__dirname, 'styles')));
 
+// Serve static files from the Vue app directory
+/*
+app.use('/public/games/anagram-hunt/anagram-hunt-vue/anagram-hunt/dist',
+        express.static(path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue',
+                                  'anagram-hunt', 'dist')));
+*/
+app.use('/public/games/anagram-hunt/anagram-hunt-vue/anagram-hunt/dist',
+        express.static(path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue',
+         'anagram-hunt', 'dist')));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 
 
-// ------------------------------------------ Homepage ------------------------------------------------
+// ------------------------------------------ Node.js Homepage ------------------------------------------------
 const testimonialRawData = fs.readFileSync(path.join(__dirname, "./public/data/testimonials.json"));
 const testimonialsJSON = JSON.parse(testimonialRawData);
 
+// Node.js routing:
 // Set the homepage to url leg to "/" with Node and send it the homepage, aka `index.html`
 app.get("/", (request, response) => {
   response.sendFile(path.join(__dirname, "public", "index.html"));
@@ -23,7 +49,7 @@ app.get("/", (request, response) => {
 app.get("/testimonials", (request, response) => {
   // NOTE to Grading Instructor and/or Jared Dunn:  I could not get this GET request to work the way we did
   // in class, so I used async fetch() instead.
-  if(testimonialsJSON && testimonialsJSON.length > 0) {
+  if (testimonialsJSON && testimonialsJSON.length > 0) {
     // If the testimonials JSON is not null and not empty, send the response to:
     // scripts.js > fetchQuotes()
     response.json(testimonialsJSON);
@@ -31,6 +57,25 @@ app.get("/testimonials", (request, response) => {
     response.json(null);
   }
 });
+
+
+// ------------------------------------------ Vue3 Anagram Hunt Node.js Routing ---------------------------------------
+// Handle route for the Vue app
+app.get("/games/anagram-hunt",
+  (request, result)=>{
+    result.sendFile(path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue', 'anagram-hunt', 'dist',
+                              'index.html')
+    );
+});
+
+// Handle all other routes with the index file from Vue app
+app.get('*',
+  (request, result)=>{
+    result.sendFile(path.join(__dirname,'public', 'games', 'anagram-hunt', 'anagram-hunt-vue',
+                              'anagram-hunt', 'dist', 'index.html')
+    );
+});
+
 
 
 // ------------------------------------------ Contact-Us page ------------------------------------------------
@@ -41,19 +86,19 @@ app.get("/testimonials", (request, response) => {
 // This kind of server-side code or backend code is what I truly need to work on,
 // and a weak spot in my skills.  (I'm a Front End dev trying to become Full Stack.)
 app.post("/contact-response-msg",
-  [ check("email", "Invalid email address.").isEmail() ],
+  [check("email", "Invalid email address.").isEmail()],
   (request, response) => {
     const contactErrors = validationResult(request);
-
+    
     let responseMsg = "";
-
+    
     if (!contactErrors.isEmpty()) {
       let contactErrorsHtmlList = "";
-
-      for(let error of contactErrors.array()){
+      
+      for (let error of contactErrors.array()) {
         contactErrorsHtmlList += `<li>${error.msg}</li>`
       }
-    
+      
       responseMsg = `<ul id="contact-response-message">
                       Message not sent due to:
                         ${contactErrorsHtmlList}
@@ -61,15 +106,15 @@ app.post("/contact-response-msg",
     }
     
     response.status(200).send(responseMsg);
-});
+  });
 
 
 // ------------------------------------- Math Facts game page Final Screen for end of game  ----------------------
 app.get("/math-facts-final-screen",
-  (request, response)=> {
+  (request, response) => {
     const jsonStr = request.query.jsonStr;
-    if(jsonStr){
-      try{
+    if (jsonStr) {
+      try {
         const endGameObj = JSON.parse(jsonStr);
         
         const operation = endGameObj.operation;
@@ -100,17 +145,17 @@ app.get("/math-facts-final-screen",
           </button>`;
         
         response.status(200).send(responseMsg);
-      }catch (error) {
+      } catch (error) {
         response.status(400).send('Invalid JSON');
       }
     } else {
       response.status(400).send('Missing jsonStr query parameter');
     }
-});
+  });
 
 // ------------------------------------------ App listening port ------------------------------------------------
 const port = process.env.PORT || 8081;
 
-app.listen(port, ()=>{
+app.listen(port, () => {
   console.log("Express / Node.js app running on port: " + port);
 }); // port = 8081
