@@ -1,17 +1,17 @@
 <template>
-  <h2 class="page-name text-center">Anagram Hunt</h2>
+  <div id="anagram-hunt-start" class="site-page-div col-12 w-75 mx-auto">
+    <WordLengthInput/>
+    <PlayButton/>
 
-  <WordLengthInput />
-
-  <div class="game-rules-list-div">
-    <ol class="game-rules-list">
-      <li>Choose a word length between 5 to 8 characters long.</li>
-      <li>Press "<strong>Play!</strong>"</li>
-      <li>How many anagrams can you find in a minute?</li>
-    </ol>
+    <div class="game-rules-list-div col-12 mx-auto mb-4">
+      <ol class="game-rules-list">
+        <li>Choose a word length between 5 to 8 characters long.</li>
+        <li>Press "<strong>Play!</strong>"</li>
+        <li>How many anagrams can you find in a minute?</li>
+      </ol>
+    </div>
   </div>
 
-  <PlayButton />
 </template>
 
 <script>
@@ -28,21 +28,11 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.page-name {
-  margin: 2.3rem 0 1.2rem 0;
-  font-size: 2.75rem;
-}
+<style src="../../../../../../styles/normalize.css"></style>
+<style src="../../../../../../styles/styles.css"></style>
+<style src="../../../../../../styles/games.css"></style>
 
-.game-rules-list-div {
-  width: 45%;
-  height: auto;
-  margin: 0 auto 2rem;
-  padding: 0;
-}
-
-.game-rules-list li {
-  margin: 0.67rem;
-  padding: 0.33rem;
-}
-</style>
+<!--
+<style src="../../../anagram-hunt/public/anagram-styles/anagram-normalize.css"></style>
+<style src="../../../anagram-hunt/public/anagram-styles/anagram-global-style.css"></style>
+<style src="../../../anagram-hunt/public/anagram-styles/anagram-game.css"></style>-->

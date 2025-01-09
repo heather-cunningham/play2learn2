@@ -1,5 +1,4 @@
-<!--suppress CssUnusedSymbol -->
-<template>
+<template id="app">
   <MainContainer />
 </template>
 
@@ -15,6 +14,11 @@ export default {
 </script>
 
 <style>
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
 #app {
   height: 100%;
   margin: 0;
