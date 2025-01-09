@@ -4,9 +4,10 @@ const path = require("path");
 const fs = require("fs");
 
 const app = express();
-const port = 8081;
+
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/styles', express.static(path.join(__dirname, 'styles')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -109,6 +110,8 @@ app.get("/math-facts-final-screen",
 });
 
 // ------------------------------------------ App listening port ------------------------------------------------
+const port = process.env.PORT || 8081;
+
 app.listen(port, ()=>{
   console.log("Express / Node.js app running on port: " + port);
-}); // 8081
+}); // port = 8081
