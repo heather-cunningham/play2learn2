@@ -19,28 +19,31 @@ app.use(async (request, result,
 
 // Serve static files from the Node.js app directory
 app.use(express.static(path.join(__dirname, "public")));
+
 // Serve static files from the Node.js public styles directory
 app.use('/styles', express.static(path.join(__dirname, 'styles')));
 
-// Serve static files from the Vue app directory
-app.use('/public/games/anagram-hunt/anagram-hunt-vue/anagram-hunt/dist',
-        express.static(path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue',
-         'anagram-hunt', 'dist')));
+// Serve static files from the Vue app's dist directory
+app.use('/games/anagram-hunt/anagram-hunt-vue/anagram-hunt', express.static(
+  path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue', 'anagram-hunt', 'dist'))
+);
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
 // ------------------------------------------ Node.js Homepage ------------------------------------------------
-const testimonialRawData = fs.readFileSync(path.join(__dirname, "./public/data/testimonials.json"));
-const testimonialsJSON = JSON.parse(testimonialRawData);
-
 // Node.js routing:
+//-----------------
+// Default route for the Node.js home page
 // Set the homepage to url leg to "/" with Node and send it the homepage, aka `index.html`
 app.get("/", (request, response) => {
   response.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
+const testimonialRawData = fs.readFileSync(path.join(__dirname, "./public/data/testimonials.json"));
+const testimonialsJSON = JSON.parse(testimonialRawData);
 app.get("/testimonials", (request, response) => {
   // NOTE to Grading Instructor and/or Jared Dunn:  I could not get this GET request to work the way we did
   // in class, so I used async fetch() instead.
@@ -55,22 +58,13 @@ app.get("/testimonials", (request, response) => {
 
 
 // ------------------------------------------ Vue3 Anagram Hunt Node.js Routing ---------------------------------------
-// Handle route for the Vue app
+// Node.js Route to serve the Vue3 app from the dist directory
 app.get("/games/anagram-hunt/anagram-hunt-vue/anagram-hunt",
   (request, result)=>{
-    result.sendFile(path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue', 'anagram-hunt',
-                              'dist', 'index.html'));
-});
-
-// Handle all other routes with the index file from Vue app
-app.get('*',
-  (request, result)=>{
-    result.sendFile(path.join(__dirname,'public', 'games', 'anagram-hunt', 'anagram-hunt-vue',
-                              'anagram-hunt', 'dist', 'index.html')
+    result.sendFile(
+      path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue', 'anagram-hunt', 'dist', 'index.html')
     );
 });
-
-
 
 // ------------------------------------------ Contact-Us page ------------------------------------------------
 app.post("/contact-response-msg",
