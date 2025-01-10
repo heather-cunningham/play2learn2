@@ -1,22 +1,39 @@
 <template id="app">
-  <MainContainer />
+  <div class="wrapper d-flex flex-column min-vh-100">
+    <HeaderNavBar/>
+    <PageHeading/>
+    <MainContainer />
+    <FooterBar/>
+  </div>
 </template>
 
 <script>
+import {defineComponent} from "vue";
 import MainContainer from "@/components/MainContainer.vue";
+import HeaderNavBar from "@/components/HeaderNavBar.vue";
+import PageHeading from "@/components/PageHeading.vue";
+import FooterBar from "@/components/FooterBar.vue";
 
-export default {
+export default defineComponent({
   name: 'App',
   components: {
+    HeaderNavBar,
+    PageHeading,
     MainContainer,
+    FooterBar,
   },
-}
+});
 </script>
 
 <style>
 /* Global Styles */
 * {
   box-sizing: border-box;
+}
+
+html, body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
 }
 
 #app {
@@ -30,7 +47,7 @@ export default {
   box-sizing: border-box;
 }
 </style>
-<style src="../public/anagram-styles/normalize.css"></style>
-<style src="../public/anagram-styles/styles.css"></style>
-<style src="../public/anagram-styles/games.css"></style>
+<style src="../public/anagram-styles/anagram-normalize.css"></style>
+<style src="../public/anagram-styles/anagram-style.css"></style>
+<style src="../public/anagram-styles/anagram-game.css"></style>
 

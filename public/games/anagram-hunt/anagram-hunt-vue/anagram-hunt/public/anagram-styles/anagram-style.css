@@ -13,7 +13,7 @@ html, body {
 
 body {
   position: relative;
-  background-image: url("../img/alpha_numbers_bgImg_1920x1920.jpg");
+  background-image: url("../../src/assets/alpha_numbers_bgImg_1920x1920.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y;

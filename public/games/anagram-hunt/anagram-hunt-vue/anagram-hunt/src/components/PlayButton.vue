@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mb-md-4 mb-sm-2 d-flex justify-content-center align-items-center flex-wrap">
+  <div class="mx-auto mb-md-4 mb-sm-3 mb-3 d-flex justify-content-center align-items-center flex-wrap">
 
     <button id="anagram-play-btn"
             class="btn"
@@ -20,7 +20,7 @@ export default defineComponent({
 });
 </script>
 
-<style src="../../public/anagram-styles/normalize.css"></style>
-<style src="../../public/anagram-styles/styles.css"></style>
-<style src="../../public/anagram-styles/games.css"></style>
+<style src="../../public/anagram-styles/anagram-normalize.css"></style>
+<style src="../../public/anagram-styles/anagram-style.css"></style>
+<style src="../../public/anagram-styles/anagram-game.css"></style>
 
