@@ -14,11 +14,13 @@ import GameRules from "@/components/GameRules.vue";
 
 export default defineComponent({
   name: "StartScreen",
+
   components: {
     WordLengthInput,
     PlayButton,
     GameRules,
   },
+
 });
 </script>
 
