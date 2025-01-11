@@ -5,7 +5,7 @@
     <label id="word-len-lbl"
            class="me-xl-3 me-lg-2 me-md-2 mb-2 fw-bold text-end"
            for="word-len-input">
-      Word Length
+      {{ label }}
     </label>
     <input id="word-len-input"
            class="mb-2 ps-2 pe-0 py-1"
@@ -20,7 +20,14 @@
 import {defineComponent} from 'vue';
 
 export default defineComponent({
-  name: "WordLengthInput"
+  name: "WordLengthInput",
+  props: {
+    label: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {},
 });
 </script>
 

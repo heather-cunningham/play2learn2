@@ -1,6 +1,6 @@
 <template>
   <div id="anagram-hunt-start" class="site-page-div col-12 w-75 mx-auto">
-    <WordLengthInput/>
+    <WordLengthInput label="Word Length"/>
     <PlayButton/>
     <GameRules/>
   </div>
