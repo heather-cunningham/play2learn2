@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html, body {
+  font-size: 18px;
+}
+
 #math-facts-select-lbl {
   font-size: 1.5rem;
   font-family: cursive;
@@ -51,44 +55,9 @@
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
-.score-form {
-  width: 19rem;
-  height: auto;
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
-.score-input-div, .time-left-div {
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.67rem;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  font-size: larger;
-  align-content: start;
-}
-
-.score-input-div label,
-.time-left-div label {
-  width: 36%;
-  height: 1.67rem;
-  margin-right: 0.33rem;
-  padding: 0;
-  text-align: right;
-}
-
 .score-input-div input,
 .time-left-div input {
   cursor: not-allowed;
-  width: 62%;
-  height: 1.67rem;
-  margin: 0;
-  padding-bottom: 0.33rem;
-  font-weight: bold;
   background-color: floralwhite;
   border: none;
 }
@@ -166,64 +135,6 @@ div#math-facts-game {
 
 #math-question-answer-div > * {
   display: block;
-}
-
-div#calculator {
-  display: flex;
-  width: 19rem;
-  height: auto;
-  margin: 1rem auto;
-  padding: 0;
-  justify-content: center;
-  align-items: center;
-}
-
-div#calculator-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.67rem;
-}
-
-#calculator-enter-btn {
-  grid-column: span 2;
-}
-
-#calculator-buttons button {
-  min-width: 5rem;
-  min-height: 2.5rem;
-  padding: 0.67rem;
-  color: white;
-  font-size: larger;
-  font-weight: bold;
-}
-
-#calculator-buttons button.enabled {
-  cursor: pointer;
-  background-color: green;
-  border: 2px solid darkslategrey;
-  box-shadow: 0.17rem 0.17rem 0.17rem grey;
-}
-
-#calculator-buttons button.disabled {
-  cursor: not-allowed;
-  background-color: darkslategrey;
-  border: none;
-  box-shadow: none;
-}
-
-#calculator-buttons button.disabled:hover {
-  background-color: darkslategrey;
-  border: none;
-  box-shadow: none;
-}
-
-#calculator-buttons button:hover {
-  background-color: gray;
-  border-color: lightgrey;
-}
-
-#calculator-buttons button:active {
-  border: 2px inset white;
 }
 
 #math-facts-answer-input.enabled {
@@ -321,10 +232,6 @@ div#calculator-buttons {
   }
   
   .answer-input {
-    width: 16rem;
-  }
-  
-  div#calculator {
     width: 16rem;
   }
 } /*  END @media (max-width: 375px) and (max-height: 740px) */

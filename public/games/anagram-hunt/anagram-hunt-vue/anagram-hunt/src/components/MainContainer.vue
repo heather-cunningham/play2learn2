@@ -7,35 +7,43 @@
 
     <!-- START Game Board -->
     <div v-else-if="screen === 'play'">
-
+      <!-- START Play Div -->
       <div id="anagram-hunt-play" class="site-page-div col w-75 mx-auto">
-        <div id="scoreboard" class="row mx-auto">
-          <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"><!-- class="score-input-div" -->
-            <label id="anagram-score-lbl"
-                   for="anagram-score-input"
-                   class="ps-0 pe-1 py-2 text-end" > <!-- class="score-lbl" -->
-              Score:
-            </label>
-            <input id="anagram-score-input"
-                   class="p-2"
-                   type="text"
-                   placeholder="0"
-                   value=""
-                   readonly /> <!-- class="score-input" -->
+        <div class="score-form h-auto col mx-auto mt-1 mb-2">
+          <div class="score-input-div row">
+            <div id="score-lbl" class="col-md-4 col-sm-4 col-12 p-0 text-md-end text-sm-end
+                        text-start">
+                <label id="anagram-score-lbl"
+                       for="anagram-score-input" >
+                  Score:
+                </label>
+            </div>
+            <div id="score-input" class="col-md-7 col-sm-7 col-12 p-0">
+              <input id="anagram-score-input"
+                     class="fw-bold"
+                     type="text"
+                     placeholder="0"
+                     value=""
+                     readonly />
+            </div>
           </div>
 
-          <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12"><!-- class="time-left-div" -->
-            <label id="anagram-time-left-lbl"
-                   for="anagram-time-input"
-                   class="ps-0 pe-1 py-2 text-end" > <!-- class="time-left-lbl" -->
-              Time Left:
-            </label>
-            <input id="anagram-time-input"
-                   class="p-2"
-                   type="text"
-                   placeholder="60"
-                   value=""
-                   readonly /> <!-- class="time-left-input" -->
+          <div class="time-left-div row">
+            <div id="time-lbl" class="col-md-4 col-sm-4 col-12 p-0 text-sm-end
+                        text-start">
+              <label id="anagram-time-left-lbl"
+                     for="anagram-time-input"  >
+                Time Left:
+              </label>
+            </div>
+            <div id="time-input" class="col-md-7 col-sm-7 col-12 p-0">
+              <input id="anagram-time-input"
+                     class="fw-bold"
+                     type="text"
+                     placeholder="60"
+                     value=""
+                     readonly />
+            </div>
           </div>
         </div>
 
@@ -58,18 +66,16 @@
           </ol>
         </div>
 
-        <div class="score-input-div">
-          <button id="anagram-facts-quit-btn"
-                  class="quit-btn"
-                  type="button"
-                  name="quit"
-                  value="Quit">
-            Quit
-          </button>
+        <div class="score-form">
+            <button id="math-facts-quit-btn"
+                    class="quit-btn"
+                    type="button"
+                    name="quit"
+                    value="Quit">
+              Quit
+            </button>
         </div>
-
-      </div>
-
+      </div> <!-- END Play div -->
     </div> <!-- END Game Board -->
 
     <!-- START Final/End Screen -->
@@ -97,29 +103,42 @@ export default defineComponent({
 </script>
 
 <style>
- #scoreboard {
-   width: 65%;
-   height: auto;
-   flex-direction: row;
- }
+.score-form {
+  width: 19rem;
+}
 
- /* START Custom styles for Bootstrap  */
- @media (max-width: 992px) {
-   #scoreboard {
-     width: 75%;
-     height: auto;
-     flex-direction: column;
-   }
- }
+.score-input-div,
+.time-left-div {
+  font-size: 1.2rem;
+}
 
- @media (max-width: 768px) {
-   #scoreboard {
-     width: 75%;
-     height: auto;
-     flex-direction: column;
-   }
- }
- /* END Custom styles for Bootstrap  */
+.score-input-div input,
+.time-left-div input {
+  cursor: not-allowed;
+  background-color: floralwhite;
+  border: none;
+}
+
+.score-input-div input {
+  color: navy;
+}
+
+.time-left-div input {
+  color: crimson;
+}
+
+#anagram-score-lbl,
+#anagram-time-left-lbl {
+  margin: 0 0.167rem 0.167rem 0;
+  padding: 0 !important;
+}
+
+#anagram-score-input,
+#anagram-time-input {
+  width: 13rem;
+  margin: 0 0 0.167rem 0.167rem;
+  padding: 0.167rem !important;
+}
 </style>
 
 <style src="../../public/anagram-styles/anagram-normalize.css"></style>
