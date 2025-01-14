@@ -9,7 +9,7 @@
     <div v-else-if="screen === 'play'">
       <!-- START Play Div -->
       <div id="anagram-hunt-play" class="site-page-div col w-75 mx-auto">
-        <div class="score-form h-auto col mx-auto mt-1 mb-2">
+        <div class="score-form col h-auto mx-auto mt-1 mb-2">
           <div class="score-input-div row">
             <div id="score-lbl" class="col-md-4 col-sm-4 col-12 p-0 text-md-end text-sm-end
                         text-start">
@@ -76,20 +76,20 @@
           </div>
         </div>
 
-        <div id="anagram-user-answer-list-div" class="text-center">
-          <ol id="anagram-user-answer-list">
+        <div id="anagram-user-answer-list-div" class="col w-25 h-auto mx-auto">
+          <ol id="anagram-user-answer-list" class="col w-25 h-auto mx-auto">
             <li>bader</li>
           </ol>
         </div>
 
-        <div class="score-form">
-            <button id="math-facts-quit-btn"
-                    class="quit-btn"
-                    type="button"
-                    name="quit"
-                    value="Quit">
-              Quit
-            </button>
+        <div>
+          <button id="math-facts-quit-btn"
+                  class="quit-btn"
+                  type="button"
+                  name="quit"
+                  value="Quit">
+            Quit
+          </button>
         </div>
       </div> <!-- END Play div -->
     </div> <!-- END Game Board -->
