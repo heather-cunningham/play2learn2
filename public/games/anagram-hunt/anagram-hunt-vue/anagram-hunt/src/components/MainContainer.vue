@@ -67,8 +67,8 @@
             <button id="anagram-enter-btn"
                     class=""
                     type="button"
-                    alt="Enter your anagram"
-                    title="Anagram Enter button"
+                    alt="Click or tap to enter your anagram"
+                    title="Anagram enter button"
                     name="enter"
                     value="Enter">
               Enter
@@ -76,21 +76,26 @@
           </div>
         </div>
 
-        <div id="anagram-user-answer-list-div" class="col w-25 h-auto mx-auto">
-          <ol id="anagram-user-answer-list" class="col w-25 h-auto mx-auto">
+        <div id="anagram-user-answer-list-div" class="col w-25 h-auto mx-auto p-0">
+          <ol id="anagram-user-answer-list" class="col w-25 h-auto mx-auto p-0">
             <li>bader</li>
           </ol>
         </div>
 
-        <div>
-          <button id="math-facts-quit-btn"
-                  class="quit-btn"
-                  type="button"
-                  name="quit"
-                  value="Quit">
-            Quit
-          </button>
-        </div>
+
+          <div id="quit-div" class="col-12 mx-auto p-0">
+            <button id="anagram-quit-btn"
+                    class="quit-btn"
+                    type="button"
+                    alt="Click or tap to quit the Anagram Hunt game"
+                    title="Anagram Hunt quit button"
+                    name="quit"
+                    value="Quit">
+              Quit
+            </button>
+          </div>
+
+
       </div> <!-- END Play div -->
     </div> <!-- END Game Board -->
 
@@ -170,7 +175,9 @@ export default defineComponent({
 #question-div,
 #answer-div,
 #enter-div,
-#anagram-enter-btn {
+#anagram-enter-btn,
+#quit-div,
+#anagram-quit-btn {
   width: 20rem;
 }
 
@@ -178,6 +185,17 @@ export default defineComponent({
   height: 2.5rem;
   color: white;
   background-color: green;
+  font-weight: bold;
+  font-size: larger;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
+.quit-btn {
+  height: 2.5rem;
+  color: white;
+  background-color: red;
   font-weight: bold;
   font-size: larger;
   border: none;
@@ -206,7 +224,9 @@ export default defineComponent({
   #question-div,
   #answer-div,
   #enter-div,
-  #anagram-enter-btn {
+  #anagram-enter-btn,
+  #quit-div,
+  #anagram-quit-btn {
     width: 16rem;
     text-align: center;
   }

@@ -15,6 +15,7 @@ html, body {
   color: red;
 }
 
+/* ------------------------------------ CSS for playing Anagram Hunt -------------------------------  */
 .question-lbl {
   font-size: 1.5rem;
   font-weight: bold;
@@ -53,9 +54,7 @@ html, body {
 }
 
 .quit-btn {
-  width: 75%;
   height: 2.5rem;
-  margin: 0.5rem auto 2rem;
   color: white;
   background-color: red;
   font-weight: bold;
@@ -96,8 +95,6 @@ html, body {
   animation-iteration-count: 3 /*repeat animation 3 times*/
 }
 
-
-/* ------------------------------------ CSS for playing Anagram Hunt -------------------------------  */
 div.error {
   font-style: italic;
   color: red;
@@ -140,7 +137,9 @@ div.error {
 #question-div,
 #answer-div,
 #enter-div,
-#anagram-enter-btn {
+#anagram-enter-btn,
+#quit-div,
+#anagram-quit-btn {
   width: 20rem;
 }
 
@@ -210,7 +209,9 @@ div.error {
   #question-div,
   #answer-div,
   #enter-div,
-  #anagram-enter-btn {
+  #anagram-enter-btn,
+  #quit-div,
+  #anagram-quit-btn {
     width: 16rem;
     text-align: center;
   }
