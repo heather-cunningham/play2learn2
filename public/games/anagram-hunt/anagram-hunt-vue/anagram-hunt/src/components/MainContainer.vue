@@ -82,19 +82,17 @@
           </ol>
         </div>
 
-
-          <div id="quit-div" class="col-12 mx-auto p-0">
-            <button id="anagram-quit-btn"
-                    class="quit-btn"
-                    type="button"
-                    alt="Click or tap to quit the Anagram Hunt game"
-                    title="Anagram Hunt quit button"
-                    name="quit"
-                    value="Quit">
-              Quit
-            </button>
-          </div>
-
+        <div id="quit-div" class="col-12 mx-md-auto mx-sm-0 p-0">
+          <button id="anagram-quit-btn"
+                  class="quit-btn"
+                  type="button"
+                  alt="Click or tap to quit the Anagram Hunt game"
+                  title="Anagram Hunt quit button"
+                  name="quit"
+                  value="Quit">
+            Quit
+          </button>
+        </div>
 
       </div> <!-- END Play div -->
     </div> <!-- END Game Board -->
