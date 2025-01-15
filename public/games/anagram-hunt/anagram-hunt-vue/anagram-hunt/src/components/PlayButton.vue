@@ -29,6 +29,28 @@ export default defineComponent({
 });
 </script>
 
+<style>
+#anagram-play-btn {
+  width: 20rem;
+  height: 2.5rem;
+  color: white !important;
+  background-color: green;
+  font-weight: bold;
+  font-size: larger;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
+/* Custom styles for Bootstrap small screens (576px wide) and smaller */
+@media (max-width: 576px) {
+  #anagram-play-btn {
+    width: 16rem;
+    text-align: center;
+  }
+} /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
+</style>
+
 <style src="../../public/anagram-styles/anagram-normalize.css"></style>
 <style src="../../public/anagram-styles/anagram-style.css"></style>
 <style src="../../public/anagram-styles/anagram-game.css"></style>

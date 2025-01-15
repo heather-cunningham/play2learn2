@@ -1,7 +1,6 @@
 <template>
-  <div id="anagram-hunt-select-div" class="game-select-div w-75 mx-auto mb-md-3
-         mb-sm-2 mb-2 d-flex justify-content-center align-items-center flex-wrap">
-
+  <div id="anagram-hunt-select-div" class="mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex justify-content-center
+                                           align-items-center flex-wrap">
     <label id="word-len-lbl"
            class="me-xl-3 me-lg-2 me-md-2 mb-2 fw-bold text-end"
            for="word-len-input">
@@ -38,7 +37,7 @@ export default defineComponent({
 }
 
 #word-len-input {
-  width: 40%;
+  width: 20rem;
   height: 2.5rem;
   border: 1px solid gray;
   border-radius: 0.3rem;
@@ -52,6 +51,13 @@ export default defineComponent({
   }
 }
 
+/* Custom styles for Bootstrap small screens (576px wide) and smaller */
+@media (max-width: 576px) {
+  #word-len-input {
+    width: 16rem;
+    text-align: center;
+  }
+} /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
 </style>
 
 <style src="../../public/anagram-styles/anagram-normalize.css"></style>

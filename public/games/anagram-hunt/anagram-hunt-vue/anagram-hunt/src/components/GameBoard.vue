@@ -20,20 +20,17 @@
     <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto my-3 p-0">
       <li>bader</li>
     </ol>
-    <QuitButton/>
   </div>
 </template>
 
 <script>
 import {defineComponent} from "vue";
-import QuitButton from "@/components/QuitButton.vue";
 import EnterButton from "@/components/EnterButton.vue";
 
 export default defineComponent({
   name: 'GameBoard',
   components: {
     EnterButton,
-    QuitButton,
   },
 });
 

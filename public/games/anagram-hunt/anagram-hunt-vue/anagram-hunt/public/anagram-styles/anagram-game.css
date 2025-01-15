@@ -138,6 +138,9 @@ div.error {
   width: 16rem;
 }
 
+#anagram-quit-btn-div,
+#word-len-input,
+#anagram-play-btn,
 #question-div,
 #answer-div,
 #enter-div,
@@ -205,6 +208,9 @@ div.error {
 
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
+  #anagram-quit-btn-div,
+  #word-len-input,
+  #anagram-play-btn,
   #anagram-score-lbl,
   #anagram-time-left-lbl,
   #anagram-score-input,

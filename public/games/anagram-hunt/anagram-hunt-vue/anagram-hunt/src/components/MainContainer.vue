@@ -2,12 +2,13 @@
   <main id="anagram-hunt" class="flex-grow-1">
 
     <div v-if="screen === 'start'">
-      <StartScreen/>
+      <StartScreen />
       <PlayButton @click="loadPlayScreen" />
     </div>
 
     <div v-else-if="screen === 'play'">
-      <PlayScreen/>
+      <PlayScreen />
+      <QuitButton />
     </div>
 
     <!-- START Final/End Screen -->
@@ -20,6 +21,7 @@ import {defineComponent} from 'vue';
 import StartScreen from "@/components/StartScreen.vue";
 import PlayButton from "@/components/PlayButton.vue";
 import PlayScreen from "@/components/PlayScreen.vue";
+import QuitButton from "@/components/QuitButton.vue";
 
 
 export default defineComponent({
@@ -29,11 +31,12 @@ export default defineComponent({
     StartScreen,
     PlayButton,
     PlayScreen,
+    QuitButton,
   },
 
   data: () => {
     return {
-      screen: "start",
+      screen: "play",
     };
   },
 
