@@ -1,16 +1,14 @@
 <template>
   <main id="anagram-hunt" class="flex-grow-1">
-    <!-- START Start Screen -->
+
     <div v-if="screen === 'start'">
       <StartScreen/>
-      <PlayButton/>
-    </div> <!-- END Start Screen -->
+      <PlayButton @click="loadPlayScreen" />
+    </div>
 
-    <!-- START Game Board -->
     <div v-else-if="screen === 'play'">
-      <!-- START Play Div -->
-      <PlayScreen/> <!-- END Play div -->
-    </div> <!-- END Game Board -->
+      <PlayScreen/>
+    </div>
 
     <!-- START Final/End Screen -->
     <div v-else-if="screen === 'end'"></div> <!-- END Final/End Screen -->
@@ -37,7 +35,13 @@ export default defineComponent({
     return {
       screen: "start",
     };
-  }
+  },
+
+  methods: {
+    loadPlayScreen() {
+      this.screen = "play";
+    },
+  },
 });
 </script>
 

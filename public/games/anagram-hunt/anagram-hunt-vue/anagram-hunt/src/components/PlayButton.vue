@@ -5,7 +5,11 @@
             class="btn"
             type="button"
             name="anagram-hunt-play"
-            value="Play">
+            value="Play"
+            aria-label="Anagram Hunt Play button"
+            alt="Click or tap to play Anagram Hunt"
+            title="Anagram Hunt Play button"
+            @click="clickPlayBtn" >
       Play!
     </button>
   </div>
@@ -15,7 +19,13 @@
 import {defineComponent} from 'vue';
 
 export default defineComponent({
-  name: "PlayButton"
+  name: "PlayButton",
+  emits: ["click"],
+  methods: {
+    clickPlayBtn() {
+      this.$emit("click");
+    },
+  },
 });
 </script>
 
