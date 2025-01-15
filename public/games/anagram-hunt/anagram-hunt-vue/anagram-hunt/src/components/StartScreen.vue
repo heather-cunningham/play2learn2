@@ -8,7 +8,6 @@
 <script>
 import {defineComponent} from 'vue';
 import WordLengthInput from "@/components/WordLengthInput.vue";
-/*import PlayButton from "@/components/PlayButton.vue";*/
 import GameRules from "@/components/GameRules.vue";
 
 export default defineComponent({
@@ -16,7 +15,6 @@ export default defineComponent({
 
   components: {
     WordLengthInput,
-    /*PlayButton,*/
     GameRules,
   },
 
