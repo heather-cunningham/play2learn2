@@ -138,6 +138,7 @@ div.error {
 #answer-div,
 #enter-div,
 #anagram-enter-btn,
+#anagram-quit-btn-div,
 #quit-div,
 #anagram-quit-btn {
   width: 20rem;
@@ -209,6 +210,7 @@ div.error {
   #question-div,
   #answer-div,
   #enter-div,
+  #anagram-quit-btn-div,
   #anagram-enter-btn,
   #quit-div,
   #anagram-quit-btn {
