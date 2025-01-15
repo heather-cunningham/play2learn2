@@ -9,8 +9,10 @@
                 type="button"
                 alt="Click or tap to quit the Anagram Hunt game"
                 title="Anagram Hunt quit button"
+                aria-label="Anagram Hunt quit button"
                 name="quit"
-                value="Quit">
+                value="Quit"
+                @click="clickQuitBtn" >
           Quit
         </button>
       </div>
@@ -21,8 +23,14 @@
 <script>
 import {defineComponent} from "vue";
 
-export default defineComponent( {
-  name: 'QuitButton'
+export default defineComponent({
+  name: "QuitButton",
+  emits: ["click"],
+  methods: {
+    clickQuitBtn() {
+      this.$emit("click");
+    },
+  },
 });
 </script>
 
@@ -43,8 +51,6 @@ export default defineComponent( {
   border-radius: 0.3rem;
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
-
-
 
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {

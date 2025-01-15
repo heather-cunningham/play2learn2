@@ -8,7 +8,7 @@
 
     <div v-else-if="screen === 'play'">
       <PlayScreen />
-      <QuitButton />
+      <QuitButton @click="loadStartScreen" />
     </div>
 
     <!-- START Final/End Screen -->
@@ -36,13 +36,16 @@ export default defineComponent({
 
   data: () => {
     return {
-      screen: "play",
+      screen: "start",
     };
   },
 
   methods: {
     loadPlayScreen() {
       this.screen = "play";
+    },
+    loadStartScreen() {
+      this.screen = "start";
     },
   },
 });
