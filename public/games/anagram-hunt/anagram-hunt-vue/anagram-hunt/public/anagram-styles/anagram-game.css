@@ -134,11 +134,14 @@ div.error {
   width: 20rem !important;
 }
 
+#anagram-user-answer-list {
+  width: 16rem;
+}
+
 #question-div,
 #answer-div,
 #enter-div,
 #anagram-enter-btn,
-#anagram-quit-btn-div,
 #quit-div,
 #anagram-quit-btn {
   width: 20rem;
@@ -210,8 +213,8 @@ div.error {
   #question-div,
   #answer-div,
   #enter-div,
-  #anagram-quit-btn-div,
   #anagram-enter-btn,
+  #anagram-user-answer-list,
   #quit-div,
   #anagram-quit-btn {
     width: 16rem;

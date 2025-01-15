@@ -36,11 +36,15 @@
     </div>
   </div>
 </template>
+
 <script>
-export default {
+import {defineComponent} from "vue";
+
+export default defineComponent({
   name: 'ScoreForm'
-}
+});
 </script>
+
 <style>
 .score-form {
   width: 20rem;
@@ -91,3 +95,7 @@ export default {
   }
 } /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
 </style>
+
+<style src="../../public/anagram-styles/anagram-normalize.css"></style>
+<style src="../../public/anagram-styles/anagram-style.css"></style>
+<style src="../../public/anagram-styles/anagram-game.css"></style>
