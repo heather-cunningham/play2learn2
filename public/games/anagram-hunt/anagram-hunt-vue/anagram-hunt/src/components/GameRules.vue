@@ -1,5 +1,5 @@
 <template>
-  <div class="game-rules-list-div mx-auto mb-4 d-flex justify-content-center align-items-center
+  <div class="game-rules-list-div mx-auto my-2 d-flex justify-content-center align-items-center
    flex-wrap">
     <ol class="game-rules-list">
       <li>Choose a word length between 5 to 8 characters long.</li>

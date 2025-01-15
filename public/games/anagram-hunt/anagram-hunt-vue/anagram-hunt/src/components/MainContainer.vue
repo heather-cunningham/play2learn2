@@ -3,6 +3,7 @@
     <!-- START Start Screen -->
     <div v-if="screen === 'start'">
       <StartScreen/>
+      <PlayButton/>
     </div> <!-- END Start Screen -->
 
     <!-- START Game Board -->
@@ -19,19 +20,22 @@
 <script>
 import {defineComponent} from 'vue';
 import StartScreen from "@/components/StartScreen.vue";
+import PlayButton from "@/components/PlayButton.vue";
 import PlayScreen from "@/components/PlayScreen.vue";
+
 
 export default defineComponent({
   name: "MainContainer",
 
   components: {
-    PlayScreen,
     StartScreen,
+    PlayButton,
+    PlayScreen,
   },
 
   data: () => {
     return {
-      screen: "play",
+      screen: "start",
     };
   }
 });

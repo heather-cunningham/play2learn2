@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-auto mb-md-4 mb-sm-3 mb-3 d-flex justify-content-center align-items-center flex-wrap">
-
+  <div class="mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex justify-content-center align-items-center
+              flex-wrap">
     <button id="anagram-play-btn"
             class="btn"
             type="button"
@@ -8,7 +8,6 @@
             value="Play">
       Play!
     </button>
-
   </div>
 </template>
 
