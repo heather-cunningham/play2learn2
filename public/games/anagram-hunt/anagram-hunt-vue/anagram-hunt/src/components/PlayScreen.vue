@@ -30,27 +30,14 @@
           Enter
         </button>
       </div>
-    </div>
-
-    <div id="anagram-user-answer-list-div" class="row h-auto mx-auto p-0">
-      <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto p-0">
-        <li>bader</li>
-      </ol>
-    </div>
-
-    <div id="anagram-quit-btn-div" class="row h-auto mx-auto mb-4 p-0">
-      <div id="quit-div" class="col-12 mx-md-auto mx-sm-0 p-0">
-        <button id="anagram-quit-btn"
-                class="quit-btn"
-                type="button"
-                alt="Click or tap to quit the Anagram Hunt game"
-                title="Anagram Hunt quit button"
-                name="quit"
-                value="Quit">
-          Quit
-        </button>
+      <div id="anagram-user-answer-list-div" class="col-12 h-auto mx-auto p-0">
+        <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto p-0">
+          <li>bader</li>
+        </ol>
       </div>
     </div>
+
+    <QuitButton/>
 
   </div>
 </template>
@@ -58,10 +45,11 @@
 <script>
 import {defineComponent} from "vue";
 import ScoreForm from "@/components/ScoreForm.vue";
+import QuitButton from "@/components/QuitButton.vue";
 
 export default defineComponent({
   name: 'PlayScreen',
-  components: {ScoreForm}
+  components: {QuitButton, ScoreForm}
 });
 </script>
 
@@ -92,16 +80,6 @@ export default defineComponent({
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
-#question-div,
-#answer-div,
-#enter-div,
-#anagram-enter-btn,
-#anagram-quit-btn-div,
-#quit-div,
-#anagram-quit-btn {
-  width: 20rem;
-}
-
 #anagram-enter-btn {
   height: 2.5rem;
   color: white !important;
@@ -118,40 +96,18 @@ export default defineComponent({
   width: 4rem;
 }
 
-.quit-btn {
-  height: 2.5rem;
-  color: white;
-  background-color: red;
-  font-weight: bold;
-  font-size: larger;
-  border: none;
-  border-radius: 0.3rem;
-  box-shadow: 0.17rem 0.17rem 0.17rem grey;
-}
+/*
 
-.quit-btn:hover,
-#anagram-enter-btn:hover {
-  background-color: gray;
-}
-
-.quit-btn:active,
-#anagram-enter-btn:active {
-  background-color: gray;
-  border: 2px inset white;
-}
-
-
-/* Custom styles for Bootstrap small screens (576px wide) and smaller */
+!* Custom styles for Bootstrap small screens (576px wide) and smaller *!
 @media (max-width: 576px) {
   .answer-input,
   #question-div,
   #answer-div,
   #enter-div,
-  #anagram-enter-btn,
-  #quit-div,
-  #anagram-quit-btn {
+  #anagram-enter-btn {
     width: 16rem;
     text-align: center;
   }
-} /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
+} !* END Custom styles for Bootstrap small screens (576px wide) and smaller *!
+*/
 </style>
