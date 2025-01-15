@@ -64,11 +64,13 @@ html, body {
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
+#anagram-play-btn:hover,
 .quit-btn:hover,
 #anagram-enter-btn:hover {
   background-color: gray;
 }
 
+#anagram-play-btn:active,
 .quit-btn:active,
 #anagram-enter-btn:active {
   background-color: gray;

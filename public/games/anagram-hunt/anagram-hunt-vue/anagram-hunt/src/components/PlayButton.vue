@@ -42,6 +42,15 @@ export default defineComponent({
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
+#anagram-play-btn:hover {
+  background-color: gray;
+}
+
+#anagram-play-btn:active {
+  background-color: gray;
+  border: 2px inset white;
+}
+
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
   #anagram-play-btn {
