@@ -16,17 +16,7 @@
              placeholder="Enter anagram here"
              value=""/>
     </div>
-    <div id="enter-div" class="col-12 p-0 mt-1 mb-2">
-      <button id="anagram-enter-btn"
-              class=""
-              type="button"
-              alt="Click or tap to enter your anagram"
-              title="Anagram enter button"
-              name="enter"
-              value="Enter">
-        Enter
-      </button>
-    </div>
+    <EnterButton/>
     <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto my-3 p-0">
       <li>bader</li>
     </ol>
@@ -37,10 +27,12 @@
 <script>
 import {defineComponent} from "vue";
 import QuitButton from "@/components/QuitButton.vue";
+import EnterButton from "@/components/EnterButton.vue";
 
 export default defineComponent({
   name: 'GameBoard',
   components: {
+    EnterButton,
     QuitButton,
   },
 });
@@ -58,25 +50,12 @@ export default defineComponent({
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
-#anagram-enter-btn {
-  height: 2.5rem;
-  color: white !important;
-  background-color: green;
-  font-weight: bold;
-  font-size: larger;
-  border: none;
-  border-radius: 0.3rem;
-  box-shadow: 0.17rem 0.17rem 0.17rem grey;
-}
-
 #anagram-user-answer-list {
   width: 16rem;
 }
 
 #question-div,
-#answer-div,
-#enter-div,
-#anagram-enter-btn {
+#answer-div {
   width: 20rem;
 }
 
@@ -85,8 +64,6 @@ export default defineComponent({
   .answer-input,
   #question-div,
   #answer-div,
-  #enter-div,
-  #anagram-enter-btn,
   #anagram-user-answer-list {
     width: 16rem;
     text-align: center;
