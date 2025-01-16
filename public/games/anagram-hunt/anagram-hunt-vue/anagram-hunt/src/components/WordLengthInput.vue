@@ -1,17 +1,38 @@
+<!--suppress CssUnusedSymbol -->
 <template>
-  <div id="anagram-hunt-select-div" class="mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex justify-content-center
-                                           align-items-center flex-wrap">
-    <label id="word-len-lbl"
-           class="me-xl-3 me-lg-2 me-md-2 mb-2 fw-bold text-end"
-           for="word-len-input">
+  <div id="anagram-hunt-select-div" class="mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex
+                                            justify-content-center
+                                            align-items-center
+                                            flex-wrap">
+    <label :id="labelId"
+           :for="id"
+           class="me-xl-3 me-lg-2 me-md-2 mb-2 fw-bold text-end" >
       {{ label }}
     </label>
-    <input id="word-len-input"
-           class="mb-2 ps-2 pe-0 py-1"
-           type="number"
-           alt="Enter a number between 5 through 8"
-           placeholder="Enter a # from 5-8"
-           title="Enter a number between 5 through 8" />
+
+    <select :id="id"
+            class="select form-select mb-2"
+            alt="Select a number from 5 through 8"
+            :value="modelValue"
+            @input="emitInput" >
+
+      <!-- dflt / placeholder option -->
+      <option id="word-len-option-dflt"
+              :value="modelValue"
+              disabled
+              selected >
+        {{ modelValue }}
+      </option>
+
+      <!-- v-for loop of options -->
+      <option :id="`word-len-option-${optionNum}`"
+              v-for="optionNum in optionsArr"
+              :key="`word-len-option-${optionNum}`"
+              :value="optionNum" > <!-- :selected="optionNum === localValue" -->
+        {{ optionNum }}
+      </option>
+    </select>
+
   </div>
 </template>
 
@@ -20,13 +41,42 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: "WordLengthInput",
+
+  emits: [
+      "update:modelValue",
+      "input",
+  ],
+
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    labelId: {
+      type: String,
+      required: true,
+    },
     label: {
       type: String,
       required: true,
     },
+    optionsArr: {
+      type: Array,
+      required: true,
+    },
+    // fka as `currentValue`
+    modelValue: {
+      type: String,
+      default: "5",
+    },
+  }, // end props
+
+  methods: {
+    emitInput(event) {
+      this.$emit("update:modelValue", event.target.value);
+      this.$emit("input", event.target.value);
+    },
   },
-  methods: {},
 });
 </script>
 
