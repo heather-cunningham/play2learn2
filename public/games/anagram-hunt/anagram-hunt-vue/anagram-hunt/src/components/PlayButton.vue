@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex justify-content-center align-items-center
+  <div class="site-page-div mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex justify-content-center align-items-center
               flex-wrap">
     <button id="anagram-play-btn"
             class="btn"
