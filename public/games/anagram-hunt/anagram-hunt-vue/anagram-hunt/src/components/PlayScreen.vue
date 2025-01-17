@@ -1,6 +1,6 @@
 <template>
   <div id="anagram-hunt-play" class="site-page-div col w-75 mx-auto">
-    <GameBoard/>
+    <GameBoard :word-length="wordLength" />
   </div>
 </template>
 
@@ -10,6 +10,15 @@ import GameBoard from "@/components/GameBoard.vue";
 
 export default defineComponent({
   name: 'PlayScreen',
+
+  props: {
+    wordLength: {
+      type: String,
+      required: true,
+      default: "5",
+    },
+  },
+
   components: {
     GameBoard,
   },

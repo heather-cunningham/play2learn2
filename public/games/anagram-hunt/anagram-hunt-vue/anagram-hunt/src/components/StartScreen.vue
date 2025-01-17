@@ -14,8 +14,7 @@
 import {defineComponent} from 'vue';
 import WordLengthInput from "@/components/WordLengthInput.vue";
 import GameRules from "@/components/GameRules.vue";
-
-const wordLenDfltMsg = "Select a number from 5 - 8";
+import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsList";
 
 export default defineComponent({
   name: "StartScreen",
@@ -27,8 +26,13 @@ export default defineComponent({
 
   data: () => {
     return {
-      wordLenArr: ["5", "6", "7", "8"],
-      wordLenChosen: wordLenDfltMsg,
+      wordLenArr: [
+        "5",
+        "6",
+        "7",
+        "8",
+      ],
+      wordLenChosen: WORD_LEN_DFLT_MSG,
     };
   },
 

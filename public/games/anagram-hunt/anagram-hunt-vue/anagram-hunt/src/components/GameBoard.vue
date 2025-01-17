@@ -5,22 +5,14 @@
   </div>
 
   <div id="anagram-question-answer-div"
-       class="question-answer-div row mx-md-auto mx-sm-auto mx-0 mb-4 text-lg-center text-md-center
+       class="question-answer-div row mx-md-auto mx-sm-auto mx-0 mb-4 text-lg-center
+                text-md-center
                 text-sm-center text-center">
-    <div id="question-div" class="col-12 p-0">
-      <label id="anagram-question-lbl"
-             for="anagram-hunt-answer-input"
-             class="question-lbl mb-1">
-        beard
-      </label>
+    <div>
+      <p>The word length chosen is: {{ wordLength }}</p>
     </div>
-    <div id="answer-div" class="col-12 mb-4 p-0">
-      <input id="anagram-hunt-answer-input"
-             class="answer-input p-2 enabled"
-             type="text"
-             placeholder="Enter anagram here"
-             value=""/>
-    </div>
+
+    <GameQuestionAndAnswer :anagram-word="getNewAnagramWord"/>
     <EnterButton/>
     <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto my-3 p-0">
       <li>bader</li>
@@ -33,14 +25,31 @@ import {defineComponent} from "vue";
 import EnterButton from "@/components/EnterButton.vue";
 import GameScore from "@/components/GameScore.vue";
 import GameTimer from "@/components/GameTimer.vue";
+import GameQuestionAndAnswer from "@/components/GameQuestionAndAnswer.vue";
+/*import { anagramList } from "../src/assets/ANAGRAMS_LIST.js";*/
 
 export default defineComponent({
   name: 'GameBoard',
 
+  props: {
+    wordLength: {
+      type: String,
+      required: true,
+      default: "5",
+    },
+  },
+
   components: {
     GameScore,
     GameTimer,
+    GameQuestionAndAnswer,
     EnterButton,
+  },
+
+  computed: {
+    getNewAnagramWord() {
+      return this.setNewAnagramWord(); // Need to write this fcn
+    },
   },
 
   data: ()=>{
@@ -49,8 +58,13 @@ export default defineComponent({
       timeLeft: 60,
     }
   },
-});
 
+  methods: {
+    setNewAnagramWord() {
+      return "";
+    }
+  },
+});
 </script>
 
 <style>
@@ -63,26 +77,12 @@ export default defineComponent({
   width: 20rem !important;
 }
 
-.answer-input {
-  width: 20rem;
-  border: 1px solid grey;
-  box-shadow: 0.17rem 0.17rem 0.17rem grey;
-}
-
 #anagram-user-answer-list {
   width: 16rem;
 }
 
-#question-div,
-#answer-div {
-  width: 20rem;
-}
-
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
-  .answer-input,
-  #question-div,
-  #answer-div,
   #anagram-user-answer-list {
     width: 16rem;
     text-align: center;

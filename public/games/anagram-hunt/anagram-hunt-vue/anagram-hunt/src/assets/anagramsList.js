@@ -1,4 +1,4 @@
-const WORD_LEN_DFLT_MSG = "Select a number from 5 to 8";
+const WORD_LEN_DFLT_MSG = "Select a # from 5 - 8";
 
 const ANAGRAMS_LIST = {
   5: [

@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       screen: 'start',
-      wordLength: null,
+      wordLength: "5", // default to 5 for safety
     };
   },
   methods: {
@@ -50,3 +50,8 @@ export default {
   },
 };
 </script>
+
+<style src="../../public/anagram-styles/anagram-normalize.css"></style>
+<style src="../../public/anagram-styles/anagram-style.css"></style>
+<style src="../../public/anagram-styles/anagram-game.css"></style>
+

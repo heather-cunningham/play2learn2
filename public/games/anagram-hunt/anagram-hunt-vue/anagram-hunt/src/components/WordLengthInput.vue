@@ -15,10 +15,12 @@
             alt="Select a number from 5 through 8"
             v-model="selectedWordLenValue"
             @change="updateWordLenSelection">
+
       <!-- dflt / placeholder option -->
       <option :value="modelValue" disabled selected>
         {{ modelValue }}
       </option>
+
       <!-- v-for loop of options -->
       <option :id="`word-len-option-${optionNum}`"
               v-for="optionNum in optionsArr"
@@ -26,6 +28,7 @@
               :value="optionNum">
         {{ optionNum }}
       </option>
+
     </select>
 
   </div>
@@ -33,6 +36,7 @@
 
 <script>
 import {defineComponent} from 'vue';
+import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsList";
 
 export default defineComponent({
   name: "WordLengthInput",
@@ -62,7 +66,7 @@ export default defineComponent({
     },
     modelValue: {
       type: String,
-      default: "Select a number from 5 - 8",
+      default: WORD_LEN_DFLT_MSG,
     },
   },
 
