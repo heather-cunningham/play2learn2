@@ -1,4 +1,6 @@
-const anagramsList = {
+const WORD_LEN_DFLT_MSG = "Select a number from 5 to 8";
+
+const ANAGRAMS_LIST = {
   5: [
       [
         "abets",
@@ -151,4 +153,4 @@ const anagramsList = {
   ]
 };
 
-export default anagramsList;
+export { ANAGRAMS_LIST, WORD_LEN_DFLT_MSG };

@@ -6,29 +6,24 @@
                                             flex-wrap">
     <label :id="labelId"
            :for="id"
-           class="me-xl-3 me-lg-2 me-md-2 mb-2 fw-bold text-end" >
+           class="me-xl-3 me-lg-2 me-md-2 mb-2 fw-bold text-end">
       {{ label }}
     </label>
 
     <select :id="id"
             class="select form-select mb-2"
             alt="Select a number from 5 through 8"
-            :value="modelValue"
-            @input="emitInput" >
-
+            v-model="selectedWordLenValue"
+            @change="updateWordLenSelection">
       <!-- dflt / placeholder option -->
-      <option id="word-len-option-dflt"
-              :value="modelValue"
-              disabled
-              selected >
+      <option :value="modelValue" disabled selected>
         {{ modelValue }}
       </option>
-
       <!-- v-for loop of options -->
       <option :id="`word-len-option-${optionNum}`"
               v-for="optionNum in optionsArr"
               :key="`word-len-option-${optionNum}`"
-              :value="optionNum" > <!-- :selected="optionNum === localValue" -->
+              :value="optionNum">
         {{ optionNum }}
       </option>
     </select>
@@ -43,8 +38,9 @@ export default defineComponent({
   name: "WordLengthInput",
 
   emits: [
-      "update:modelValue",
-      "input",
+    "update:modelValue",
+    "selection",
+    "change",
   ],
 
   props: {
@@ -64,25 +60,38 @@ export default defineComponent({
       type: Array,
       required: true,
     },
-    // fka as `currentValue`
     modelValue: {
       type: String,
-      default: "5",
+      default: "Select a number from 5 - 8",
     },
-  }, // end props
+  },
+
+  data() {
+    return {
+      selectedWordLenValue: this.modelValue,
+    };
+  },
+
+  watch: {
+    modelValue(newValue) {
+      this.selectedWordLenValue = newValue;
+    }
+  },
 
   methods: {
-    emitInput(event) {
-      this.$emit("update:modelValue", event.target.value);
-      this.$emit("input", event.target.value);
+    updateWordLenSelection(event) {
+      const wordLenSelected = event.target.value;
+      this.selectedWordLenValue = wordLenSelected;
+
+      this.$emit("update:modelValue", wordLenSelected);
+      this.$emit("selection", wordLenSelected);
     },
   },
 });
 </script>
 
 <style scoped>
-
-#word-len-lbl{
+#word-len-lbl {
   font-size: 1.2rem;
 }
 
@@ -107,7 +116,7 @@ export default defineComponent({
     width: 16rem;
     text-align: center;
   }
-} /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
+}
 </style>
 
 <style src="../../public/anagram-styles/anagram-normalize.css"></style>

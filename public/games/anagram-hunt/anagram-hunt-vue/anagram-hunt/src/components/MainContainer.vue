@@ -1,30 +1,27 @@
 <template>
   <main id="anagram-hunt" class="flex-grow-1">
-
-    <div v-if="screen === 'start'">
-      <StartScreen />
+    <div id="start-game-div" v-if="screen === 'start'">
+      <StartScreen @selection="handleWordLenSelection" />
       <PlayButton @click="loadPlayScreen" />
     </div>
 
-    <div v-else-if="screen === 'play'">
-      <PlayScreen />
+    <div id="play-game-div" v-else-if="screen === 'play'">
+      <PlayScreen :wordLength="wordLength" />
       <QuitButton @click="loadStartScreen" />
     </div>
 
     <!-- START Final/End Screen -->
-    <div v-else-if="screen === 'end'"></div> <!-- END Final/End Screen -->
+    <div id="end-game-div" v-else-if="screen === 'end'"></div> <!-- END Final/End Screen -->
   </main>
 </template>
 
 <script>
-import {defineComponent} from 'vue';
 import StartScreen from "@/components/StartScreen.vue";
 import PlayButton from "@/components/PlayButton.vue";
 import PlayScreen from "@/components/PlayScreen.vue";
 import QuitButton from "@/components/QuitButton.vue";
 
-
-export default defineComponent({
+export default {
   name: "MainContainer",
 
   components: {
@@ -34,24 +31,22 @@ export default defineComponent({
     QuitButton,
   },
 
-  data: () => {
+  data() {
     return {
-      screen: "start",
+      screen: 'start',
+      wordLength: null,
     };
   },
-
   methods: {
+    handleWordLenSelection(selection) {
+      this.wordLength = selection;
+    },
     loadPlayScreen() {
-      this.screen = "play";
+      this.screen = 'play';
     },
     loadStartScreen() {
-      this.screen = "start";
+      this.screen = 'start';
     },
   },
-});
+};
 </script>
-
-<style src="../../public/anagram-styles/anagram-normalize.css"></style>
-<style src="../../public/anagram-styles/anagram-style.css"></style>
-<style src="../../public/anagram-styles/anagram-game.css"></style>
-
