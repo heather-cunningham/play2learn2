@@ -1,5 +1,12 @@
 const WORD_LEN_DFLT_MSG = "Select a # from 5 - 8";
 
+const removeElFromArray = (arr, indexToRemove)=>{
+  if (indexToRemove > -1)
+    arr.splice(indexToRemove, 1);
+  
+  return arr;
+};
+
 const ANAGRAMS_LIST = {
   5: [
       [
@@ -153,4 +160,4 @@ const ANAGRAMS_LIST = {
   ]
 };
 
-export { ANAGRAMS_LIST, WORD_LEN_DFLT_MSG };
+export { ANAGRAMS_LIST, WORD_LEN_DFLT_MSG, removeElFromArray };

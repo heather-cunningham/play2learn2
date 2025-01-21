@@ -36,7 +36,7 @@
 
 <script>
 import {defineComponent} from 'vue';
-import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsList";
+import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsListHelpers.js";
 
 export default defineComponent({
   name: "WordLengthInput",

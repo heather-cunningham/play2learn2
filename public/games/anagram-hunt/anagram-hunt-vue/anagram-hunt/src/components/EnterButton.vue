@@ -1,5 +1,5 @@
 <template>
-  <div id="enter-div" class="col-12 p-0 mt-1 mb-2">
+  <div id="enter-div" class="col-12 p-0 mt-1 mb-3">
     <button id="anagram-enter-btn"
             class=""
             type="button"

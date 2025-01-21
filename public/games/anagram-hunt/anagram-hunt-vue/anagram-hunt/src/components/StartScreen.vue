@@ -14,7 +14,7 @@
 import {defineComponent} from 'vue';
 import WordLengthInput from "@/components/WordLengthInput.vue";
 import GameRules from "@/components/GameRules.vue";
-import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsList";
+import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsListHelpers.js";
 
 export default defineComponent({
   name: "StartScreen",
