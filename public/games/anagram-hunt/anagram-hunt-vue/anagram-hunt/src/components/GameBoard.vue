@@ -21,6 +21,7 @@
         <input id="anagram-hunt-answer-input"
                class="answer-input p-2 enabled"
                type="text"
+               ref="inputRef"
                placeholder="Enter anagram here"
                alt="Type anagram here"
                v-model="userAnswer"
@@ -71,41 +72,69 @@ export default defineComponent({
   data: ()=>{
     return {
       userScore: 0,
-      timeLeft: 60,
+      timeLeft: 60000,
       newAnagramWordList: [],
       newAnagramWord: "",
       userAnswer: "",
       isAnswerCorrect: false,
       usersAnswerList: [],
+      timerIntervalId: null,
     }
   },
 
   created() {
-    this.setNewAnagram();
+    this.startGame();
+  },
+
+  mounted() {
+    if(this.$refs.inputRef){
+      this.focusInput();
+    }
   },
 
   methods: {
+    startGame() {
+      this.setNewAnagram();
+      this.focusInput();
+      this.startTimer();
+    },
+
+    focusInput(){
+      if(this.$refs.inputRef){
+        this.$refs.inputRef.focus();
+      }
+    },
+
     setNewAnagram() {
       // Word length between 5 and 8 chosen by user
       const wordLenIndex = Number(this.wordLength);
-      const listOfWordLists = ANAGRAMS_LIST[wordLenIndex];
-      this.newAnagramWordList = listOfWordLists[Math.floor(Math.random() * listOfWordLists.length)];
+      let listOfWordLists = ANAGRAMS_LIST[wordLenIndex];
+      let newAnagramWordListIndex;
 
-      const newAnagramIndex = Math.floor(Math.random() * this.newAnagramWordList.length);
-      this.newAnagramWord = this.newAnagramWordList[newAnagramIndex];
-      console.log("#### new anagram word: " + this.newAnagramWord);
+      if(listOfWordLists.length > 0) {
+        for(let i = 0; i < listOfWordLists.length; ++i){
+          newAnagramWordListIndex = Math.floor(Math.random() * listOfWordLists.length);
+          this.newAnagramWordList = listOfWordLists[newAnagramWordListIndex];
+          if (this.newAnagramWordList.length >= 2)
+            break;
+        }
 
-      // Remove the word, from which the user is to make anagrams, from the wordList
-      if (this.newAnagramWordList.includes(this.newAnagramWord))
-        this.newAnagramWordList = removeElFromArray(this.newAnagramWordList, newAnagramIndex);
+        if (this.newAnagramWordList.length >= 2) {
+          // Remove this wordList from the listOfWordLists of this length:
+          listOfWordLists = removeElFromArray(listOfWordLists, newAnagramWordListIndex);
 
-      console.log("####2 new anagram wordList2: " + this.newAnagramWordList);
-    },
+          const newAnagramIndex = Math.floor(Math.random() * this.newAnagramWordList.length);
+          this.newAnagramWord = this.newAnagramWordList[newAnagramIndex];
 
-    resetAnagram() {
-      this.setNewAnagram();
-      this.usersAnswerList = [];
-      this.isAnswerCorrect = false;
+          // Remove the word, from which the user is to make anagrams, from the wordList
+          if (this.newAnagramWordList.includes(this.newAnagramWord))
+            this.newAnagramWordList = removeElFromArray(this.newAnagramWordList, newAnagramIndex);
+        } else {
+          this.newAnagramWord = "Game Over!";
+        }
+      } else {
+        this.newAnagramWord = "Game Over!";
+      }
     },
 
     setAnswerInput(){
@@ -113,12 +142,13 @@ export default defineComponent({
       this.isAnswerCorrect = this.checkAnswer(wordEntered);
 
       if(this.isAnswerCorrect){
-        this.newAnagramWordList = removeElFromArray(this.newAnagramWordList, this.newAnagramWordList.indexOf(wordEntered));
+        this.newAnagramWordList = removeElFromArray(this.newAnagramWordList,
+            this.newAnagramWordList.indexOf(wordEntered));
         this.usersAnswerList.push(wordEntered);
         this.userAnswer = "";
         this.userScore += 1;
 
-        // If all the anagrams have been guessed:
+        // If all the anagrams in this wordList have been guessed:
         if(this.newAnagramWordList.length === 0)
           this.resetAnagram();
       }
@@ -126,6 +156,7 @@ export default defineComponent({
 
     handleClickEnterBtn() {
       this.setAnswerInput();
+      this.focusInput();
     },
 
     handleClickQuitBtn() {
@@ -138,14 +169,43 @@ export default defineComponent({
         return true;
     },
 
+    startTimer(){
+      if(this.timeLeft > 0){ // timeLeft = 60 initially
+        this.timerIntervalId = setInterval(()=> {--this.timeLeft},1000);
+      }
+    },
+
+    stopTimer(timerIntervalId){
+      clearInterval(timerIntervalId);
+    },
+
+    resetAnagram() {
+      this.userAnswer = "";
+      this.usersAnswerList = [];
+      this.isAnswerCorrect = false;
+      this.focusInput();
+      this.setNewAnagram();
+    },
+
     resetGameBoard(){
       this.userScore = 0;
-      this.timeLeft = 60;
+      this.timeLeft = 60000;
       this.userAnswer = "";
       this.usersAnswerList = [];
       this.isAnswerCorrect = false;
       this.newAnagramWordList = [];
       this.newAnagramWord = "";
+      this.stopTimer(this.timerIntervalId);
+    },
+
+    checkIfGameOver(){
+      if(this.timeLeft === 0){
+        // do stuff
+      }
+    },
+
+    endGame(){
+      // do stuff
     },
   },//end methods
 });
