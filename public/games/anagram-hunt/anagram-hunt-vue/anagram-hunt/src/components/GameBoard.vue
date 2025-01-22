@@ -5,15 +5,11 @@
       <GameTimer :time-left="timeLeft"/>
     </div>
 
+    <!-- START Anagram Question & Answer divs -->
     <div id="anagram-question-answer-div"
          class="question-answer-div row mx-md-auto mx-sm-auto mx-0 mb-4 text-lg-center
                 text-md-center
                 text-sm-center text-center">
-      <div>
-        <p>The word length chosen is: {{ wordLength }}</p>
-      </div>
-
-      <!-- START Anagram Question & Answer divs -->
       <div id="question-div" class="col-12 p-0">
         <label id="anagram-question-lbl"
                for="anagram-hunt-answer-input"
@@ -36,7 +32,7 @@
     </div>
   </div>
 
-  <QuitButton @click="toggleScreen" />
+  <QuitButton @click="handleClickQuitBtn" />
 </template>
 
 <script>
@@ -93,9 +89,7 @@ export default defineComponent({
       // Word length between 5 and 8 chosen by user
       const wordLenIndex = Number(this.wordLength);
       const listOfWordLists = ANAGRAMS_LIST[wordLenIndex];
-
       this.newAnagramWordList = listOfWordLists[Math.floor(Math.random() * listOfWordLists.length)];
-      console.log("####1 new anagram wordList1: " + this.newAnagramWordList);
 
       const newAnagramIndex = Math.floor(Math.random() * this.newAnagramWordList.length);
       this.newAnagramWord = this.newAnagramWordList[newAnagramIndex];
@@ -134,9 +128,24 @@ export default defineComponent({
       this.setAnswerInput();
     },
 
+    handleClickQuitBtn() {
+      this.resetGameBoard();
+      this.toggleScreen();
+    },
+
     checkAnswer(wordEntered){
       if(this.newAnagramWordList.includes(wordEntered))
         return true;
+    },
+
+    resetGameBoard(){
+      this.userScore = 0;
+      this.timeLeft = 60;
+      this.userAnswer = "";
+      this.usersAnswerList = [];
+      this.isAnswerCorrect = false;
+      this.newAnagramWordList = [];
+      this.newAnagramWord = "";
     },
   },//end methods
 });
