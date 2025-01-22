@@ -1,38 +1,42 @@
 <template>
-  <div class="score-form col h-auto mx-auto mt-1 mb-2">
-    <GameScore :user-score="userScore"/>
-    <GameTimer :time-left="timeLeft"/>
-  </div>
+  <div id="anagram-hunt-play" class="site-page-div col w-75 mx-auto">
+    <div class="score-form col h-auto mx-auto mt-1 mb-2">
+      <GameScore :user-score="userScore"/>
+      <GameTimer :time-left="timeLeft"/>
+    </div>
 
-  <div id="anagram-question-answer-div"
-       class="question-answer-div row mx-md-auto mx-sm-auto mx-0 mb-4 text-lg-center
+    <div id="anagram-question-answer-div"
+         class="question-answer-div row mx-md-auto mx-sm-auto mx-0 mb-4 text-lg-center
                 text-md-center
                 text-sm-center text-center">
-    <div>
-      <p>The word length chosen is: {{ wordLength }}</p>
-    </div>
+      <div>
+        <p>The word length chosen is: {{ wordLength }}</p>
+      </div>
 
-    <div id="question-div" class="col-12 p-0">
-      <label id="anagram-question-lbl"
-             for="anagram-hunt-answer-input"
-             class="question-lbl mb-1">
-        {{ newAnagramWord }}
-      </label>
-    </div>
+      <!-- START Anagram Question & Answer divs -->
+      <div id="question-div" class="col-12 p-0">
+        <label id="anagram-question-lbl"
+               for="anagram-hunt-answer-input"
+               class="question-lbl mb-1">
+          {{ newAnagramWord }}
+        </label>
+      </div>
+      <div id="answer-div" class="col-12 mb-4 p-0">
+        <input id="anagram-hunt-answer-input"
+               class="answer-input p-2 enabled"
+               type="text"
+               placeholder="Enter anagram here"
+               alt="Type anagram here"
+               v-model="userAnswer"
+               @change="setAnswerInput"/>
+      </div> <!-- END Anagram Question & Answer divs -->
 
-    <div id="answer-div" class="col-12 mb-4 p-0">
-      <input id="anagram-hunt-answer-input"
-             class="answer-input p-2 enabled"
-             type="text"
-             placeholder="Enter anagram here"
-             alt="Type anagram here"
-             v-model="userAnswer"
-             @change="setAnswerInput" />
+      <EnterButton @click="handleClickEnterBtn"/>
+      <UserAnswers :users-answer-list="usersAnswerList"/>
     </div>
-
-    <EnterButton @click="handleClickEnterBtn"/>
-    <UserAnswers :users-answer-list="usersAnswerList"/>
   </div>
+
+  <QuitButton @click="toggleScreen" />
 </template>
 
 <script>
@@ -41,6 +45,7 @@ import GameScore from "@/components/GameScore.vue";
 import GameTimer from "@/components/GameTimer.vue";
 import EnterButton from "@/components/EnterButton.vue";
 import UserAnswers from "@/components/UserAnswers.vue";
+import QuitButton from "@/components/QuitButton.vue";
 import {ANAGRAMS_LIST, removeElFromArray} from "@/assets/anagramsListHelpers";
 
 
@@ -53,6 +58,10 @@ export default defineComponent({
       required: true,
       default: "5", // Default to 5 for safety; 2d arr of anagrams only has 4 sublists named 5 - 8.
     },
+    toggleScreen: {
+      type: Function,
+      required: true,
+    }
   },
 
   components: {
@@ -60,6 +69,7 @@ export default defineComponent({
     GameTimer,
     EnterButton,
     UserAnswers,
+    QuitButton,
   },
 
   data: ()=>{
@@ -91,7 +101,7 @@ export default defineComponent({
       this.newAnagramWord = this.newAnagramWordList[newAnagramIndex];
       console.log("#### new anagram word: " + this.newAnagramWord);
 
-      // Remove the word from which the user is to make anagrams from the wordList
+      // Remove the word, from which the user is to make anagrams, from the wordList
       if (this.newAnagramWordList.includes(this.newAnagramWord))
         this.newAnagramWordList = removeElFromArray(this.newAnagramWordList, newAnagramIndex);
 
@@ -109,10 +119,10 @@ export default defineComponent({
       this.isAnswerCorrect = this.checkAnswer(wordEntered);
 
       if(this.isAnswerCorrect){
-        this.newAnagramWordList = removeElFromArray(this.newAnagramWordList,
-            this.newAnagramWordList.indexOf(wordEntered));
+        this.newAnagramWordList = removeElFromArray(this.newAnagramWordList, this.newAnagramWordList.indexOf(wordEntered));
         this.usersAnswerList.push(wordEntered);
         this.userAnswer = "";
+        this.userScore += 1;
 
         // If all the anagrams have been guessed:
         if(this.newAnagramWordList.length === 0)
@@ -125,9 +135,8 @@ export default defineComponent({
     },
 
     checkAnswer(wordEntered){
-      if(this.newAnagramWordList.includes(wordEntered)){
+      if(this.newAnagramWordList.includes(wordEntered))
         return true;
-      }
     },
   },//end methods
 });

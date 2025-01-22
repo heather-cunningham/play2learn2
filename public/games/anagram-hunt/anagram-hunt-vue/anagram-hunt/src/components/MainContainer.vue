@@ -2,12 +2,11 @@
   <main id="anagram-hunt" class="flex-grow-1">
     <div id="start-game-div" v-if="screen === 'start'">
       <StartScreen @selection="handleWordLenSelection" />
-      <PlayButton @click="loadPlayScreen" />
+      <PlayButton @click="toggleScreen" />
     </div>
 
     <div id="play-game-div" v-else-if="screen === 'play'">
-      <PlayScreen :wordLength="wordLength" />
-      <QuitButton @click="loadStartScreen" />
+      <GameBoard :wordLength="wordLength" :toggle-screen="toggleScreen"/>
     </div>
 
     <!-- START Final/End Screen -->
@@ -18,8 +17,7 @@
 <script>
 import StartScreen from "@/components/StartScreen.vue";
 import PlayButton from "@/components/PlayButton.vue";
-import PlayScreen from "@/components/PlayScreen.vue";
-import QuitButton from "@/components/QuitButton.vue";
+import GameBoard from "@/components/GameBoard.vue";
 
 export default {
   name: "MainContainer",
@@ -27,8 +25,7 @@ export default {
   components: {
     StartScreen,
     PlayButton,
-    PlayScreen,
-    QuitButton,
+    GameBoard,
   },
 
   data() {
@@ -37,15 +34,14 @@ export default {
       wordLength: "5", // default to 5 for safety
     };
   },
+
   methods: {
     handleWordLenSelection(selection) {
       this.wordLength = selection;
     },
-    loadPlayScreen() {
-      this.screen = 'play';
-    },
-    loadStartScreen() {
-      this.screen = 'start';
+
+    toggleScreen: function () {
+      this.screen = this.screen === "start" ? "play" : "start";
     },
   },
 };
