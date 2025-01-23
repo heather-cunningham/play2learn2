@@ -1,9 +1,9 @@
 <template id="app">
   <div class="wrapper d-flex flex-column min-vh-100">
-    <HeaderNavBar/>
-    <PageHeading/>
+    <HeaderNavBar />
+    <PageHeading />
     <MainContainer />
-    <FooterBar/>
+    <FooterBar />
   </div>
 </template>
 
