@@ -1,3 +1,4 @@
+<!--suppress CssUnusedSymbol -->
 <template>
   <div id="anagram-hunt-play" class="site-page-div col w-75 mx-auto">
     <div class="score-form col h-auto mx-auto mt-1 mb-2">
@@ -10,14 +11,18 @@
          class="question-answer-div row mx-md-auto mx-sm-auto mx-0 mb-4 text-lg-center
                 text-md-center
                 text-sm-center text-center">
-      <div id="question-div" class="col-12 p-0">
-        <label id="anagram-question-lbl"
-               for="anagram-hunt-answer-input"
-               class="question-lbl mb-1">
-          {{ newAnagramWord }}
-          <span class="fw-normal">({{ numAnagramsLeft }} left)</span>
-        </label>
-      </div>
+
+      <transition name="fade" mode="out-in">
+        <div id="question-div" :key="newAnagramWord" class="col-12 p-0">
+          <label id="anagram-question-lbl"
+                 for="anagram-hunt-answer-input"
+                 class="question-lbl mb-1">
+            {{ newAnagramWord }}
+            <span class="fw-normal">({{ numAnagramsLeft }} left)</span>
+          </label>
+        </div>
+      </transition>
+
       <div id="answer-div" class="col-12 mb-4 p-0">
         <input id="anagram-hunt-answer-input"
                class="answer-input p-2 enabled"
@@ -74,6 +79,7 @@ export default defineComponent({
     return {
       userScore: 0,
       timeLeft: 60000,
+      show: true,
       newAnagramWordList: [],
       newAnagramWord: "",
       numAnagramsLeft: 0,
@@ -92,6 +98,13 @@ export default defineComponent({
     if(this.$refs.inputRef){
       this.focusInput();
     }
+  },
+
+  watch: {
+    newAnagramWord() {
+      this.show = false;
+      this.$nextTick(()=> this.show = true);
+    },
   },
 
   methods: {
@@ -148,7 +161,7 @@ export default defineComponent({
 
       if(this.isAnswerCorrect){
         this.newAnagramWordList = removeElFromArray(this.newAnagramWordList,
-            this.newAnagramWordList.indexOf(wordEntered));
+                                                    this.newAnagramWordList.indexOf(wordEntered));
         this.usersAnswerList.push(wordEntered);
         this.numAnagramsLeft = this.newAnagramWordList.length;
         this.userAnswer = "";
@@ -233,6 +246,16 @@ export default defineComponent({
 .answer-input {
   border: 1px solid grey;
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
