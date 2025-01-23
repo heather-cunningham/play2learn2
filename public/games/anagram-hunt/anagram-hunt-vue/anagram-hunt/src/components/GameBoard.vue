@@ -15,6 +15,7 @@
                for="anagram-hunt-answer-input"
                class="question-lbl mb-1">
           {{ newAnagramWord }}
+          <span class="fw-normal">({{ numAnagramsLeft }} left)</span>
         </label>
       </div>
       <div id="answer-div" class="col-12 mb-4 p-0">
@@ -75,6 +76,7 @@ export default defineComponent({
       timeLeft: 60000,
       newAnagramWordList: [],
       newAnagramWord: "",
+      numAnagramsLeft: 0,
       userAnswer: "",
       isAnswerCorrect: false,
       usersAnswerList: [],
@@ -129,6 +131,9 @@ export default defineComponent({
           // Remove the word, from which the user is to make anagrams, from the wordList
           if (this.newAnagramWordList.includes(this.newAnagramWord))
             this.newAnagramWordList = removeElFromArray(this.newAnagramWordList, newAnagramIndex);
+
+          // Get the new length of newAnagramWordList for the # of remaining anagrams:
+          this.numAnagramsLeft = this.newAnagramWordList.length;
         } else {
           this.newAnagramWord = "Game Over!";
         }
@@ -145,6 +150,7 @@ export default defineComponent({
         this.newAnagramWordList = removeElFromArray(this.newAnagramWordList,
             this.newAnagramWordList.indexOf(wordEntered));
         this.usersAnswerList.push(wordEntered);
+        this.numAnagramsLeft = this.newAnagramWordList.length;
         this.userAnswer = "";
         this.userScore += 1;
 
@@ -221,7 +227,7 @@ export default defineComponent({
 #question-div,
 #answer-div,
 .answer-input {
-  width: 20rem !important;
+  width: 20rem;
 }
 
 .answer-input {
