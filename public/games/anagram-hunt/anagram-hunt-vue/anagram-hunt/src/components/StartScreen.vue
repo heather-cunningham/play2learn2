@@ -6,7 +6,7 @@
                      :options-arr="wordLenArr"
                      v-model="wordLenChosen"
                      @selection="setWordLenChosen" />
-    <GameRules/>
+    <GameRules />
   </div>
 </template>
 
