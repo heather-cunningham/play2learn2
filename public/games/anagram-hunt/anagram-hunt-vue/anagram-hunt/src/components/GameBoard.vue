@@ -79,7 +79,7 @@ export default defineComponent({
     return {
       userScore: 0,
       timeLeft: 60000,
-      show: true,
+      showNewWord: true,
       newAnagramWordList: [],
       newAnagramWord: "",
       numAnagramsLeft: 0,
@@ -102,8 +102,8 @@ export default defineComponent({
 
   watch: {
     newAnagramWord() {
-      this.show = false;
-      this.$nextTick(()=> this.show = true);
+      this.showNewWord = false;
+      this.$nextTick(()=> this.showNewWord = true);
     },
   },
 
