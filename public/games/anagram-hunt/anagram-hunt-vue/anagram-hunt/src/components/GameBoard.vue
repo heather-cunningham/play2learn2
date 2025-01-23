@@ -64,7 +64,7 @@ export default defineComponent({
     toggleScreen: {
       type: Function,
       required: true,
-    }
+    },
   },
 
   components: {
@@ -103,7 +103,7 @@ export default defineComponent({
   watch: {
     newAnagramWord() {
       this.showNewWord = false;
-      this.$nextTick(()=> this.showNewWord = true);
+      this.$nextTick(() => this.showNewWord = true);
     },
   },
 
@@ -160,16 +160,18 @@ export default defineComponent({
       this.isAnswerCorrect = this.checkAnswer(wordEntered);
 
       if(this.isAnswerCorrect){
+        this.usersAnswerList.push(wordEntered);
         this.newAnagramWordList = removeElFromArray(this.newAnagramWordList,
                                                     this.newAnagramWordList.indexOf(wordEntered));
-        this.usersAnswerList.push(wordEntered);
         this.numAnagramsLeft = this.newAnagramWordList.length;
         this.userAnswer = "";
         this.userScore += 1;
+      }
 
-        // If all the anagrams in this wordList have been guessed:
-        if(this.newAnagramWordList.length === 0)
-          this.resetAnagram();
+      // If all the anagrams in this wordList have been guessed:
+      if(this.newAnagramWordList.length === 0) {
+        this.resetAnagram();
+        this.resetUserAnswersList();
       }
     },// end setAnswerInput()
 
@@ -200,10 +202,13 @@ export default defineComponent({
 
     resetAnagram() {
       this.userAnswer = "";
-      this.usersAnswerList = [];
       this.isAnswerCorrect = false;
       this.focusInput();
       this.setNewAnagram();
+    },
+
+    resetUserAnswersList() {
+      this.$nextTick(()=> this.usersAnswerList = []);
     },
 
     resetGameBoard(){

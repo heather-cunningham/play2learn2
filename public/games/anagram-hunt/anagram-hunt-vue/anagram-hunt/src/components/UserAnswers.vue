@@ -26,12 +26,13 @@
 <script>
 export default {
   name: 'UserAnswers',
+
   props: {
     usersAnswerList: {
       type: Array,
       required: true,
     },
-  }
+  },
 }
 </script>
 
