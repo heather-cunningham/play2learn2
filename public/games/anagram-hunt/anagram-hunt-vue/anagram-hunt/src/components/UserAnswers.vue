@@ -1,6 +1,8 @@
 <template>
 
-  <label id="anagram-user-answer-lbl" for="anagram-user-answer-list" class="fw-bold">Correct Answers Entered:</label>
+  <label id="anagram-user-answer-lbl" for="anagram-user-answer-list" class="fw-bold mx-auto">
+    Correct Answers Entered:
+  </label>
   <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto my-auto p-0">
     <li v-for="anagram in usersAnswerList"
         :key="anagram"
