@@ -1,6 +1,6 @@
 <template>
 
-  <label for="anagram-user-answer-list" class="fw-bold">Correct Answers Entered:</label>
+  <label id="anagram-user-answer-lbl" for="anagram-user-answer-list" class="fw-bold">Correct Answers Entered:</label>
   <ol id="anagram-user-answer-list" class="col-12 h-auto mx-auto my-auto p-0">
     <li v-for="anagram in usersAnswerList"
         :key="anagram"
@@ -24,6 +24,7 @@ export default {
 </script>
 
 <style>
+#anagram-user-answer-lbl,
 #anagram-user-answer-list {
   width: 16rem;
   text-align: center;
@@ -31,6 +32,7 @@ export default {
 
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
+  #anagram-user-answer-lbl,
   #anagram-user-answer-list {
     width: 16rem;
     text-align: center;
