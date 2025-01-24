@@ -27,8 +27,8 @@
 
 <script>
 import {defineComponent} from "vue";
-import BackToStartButton from "@/components/BackToStartButton.vue"
-import PlayButton from "@/components/PlayButton.vue"
+import BackToStartButton from "@/components/BackToStartButton.vue";
+import PlayButton from "@/components/PlayButton.vue";
 import {TIMES_UP_STR} from "@/assets/anagramsListHelpers";
 
 export default defineComponent({
