@@ -1,4 +1,6 @@
 const WORD_LEN_DFLT_MSG = "Select a # from 5 - 8";
+const GAME_OVER_MSG = "Game Over!";
+const TIMES_UP_STR = "TIME'S UP!!!";
 
 const removeElFromArray = (arr, indexToRemove)=>{
   if (indexToRemove > -1)
@@ -7,8 +9,27 @@ const removeElFromArray = (arr, indexToRemove)=>{
   return arr;
 };
 
+const HIGH_SCORE_OBJ = {
+  five: {
+    length: 9,
+    highscore: 25
+  },
+  six: {
+    length: 5,
+    highscore: 19
+  },
+  seven: {
+    length: 5,
+    highscore: 16
+  },
+  eight: {
+    length: 4,
+    highscore: 13
+  }
+};
+
 const ANAGRAMS_LIST = {
-  5: [
+  5: [ // length 9, high score = 25
       [
         "abets",
         "baste",
@@ -62,7 +83,7 @@ const ANAGRAMS_LIST = {
         "react"
       ]
   ],
-  6: [
+  6: [ // length 5, highScore = 19
       [
         "arrest",
         "rarest",
@@ -98,7 +119,7 @@ const ANAGRAMS_LIST = {
         "stared"
       ]
   ],
-  7: [
+  7: [ // length 5, highScore = 16
       [
         "allergy",
         "gallery",
@@ -131,7 +152,7 @@ const ANAGRAMS_LIST = {
         "stained"
       ]
   ],
-  8: [
+  8: [ // length 4, , highScore = 13
       [
         "parroted",
         "predator",
@@ -160,4 +181,11 @@ const ANAGRAMS_LIST = {
   ]
 };
 
-export { ANAGRAMS_LIST, WORD_LEN_DFLT_MSG, removeElFromArray };
+export {
+  WORD_LEN_DFLT_MSG,
+  GAME_OVER_MSG,
+  TIMES_UP_STR,
+  HIGH_SCORE_OBJ,
+  ANAGRAMS_LIST,
+  removeElFromArray
+};

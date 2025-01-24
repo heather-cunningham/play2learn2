@@ -7,7 +7,8 @@
             alt="Click or tap to go back to the Start screen"
             title="Anagram Hunt 'Back to Start' screen button"
             name="back"
-            value="Back to Start" >
+            value="Back to Start"
+            @click="handleClick" >
       Back to Start
     </button>
   </div>
@@ -19,6 +20,13 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: 'BackToStartButton',
+
+  props: {
+    handleClick: {
+      type: Function,
+      required: true,
+    },
+  },
 });
 </script>
 

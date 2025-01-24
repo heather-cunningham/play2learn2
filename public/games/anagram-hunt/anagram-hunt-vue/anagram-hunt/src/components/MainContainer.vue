@@ -5,7 +5,8 @@
       <PlayButton id="anagram-play-btn"
                   name="play"
                   value="Play!"
-                  @click="toggleStartScreen" />
+                  :handle-click="toggleStartScreen"
+                  :wordLength="wordLength" />
     </div>
 
     <div id="play-game-div" v-else-if="screen === 'play'">
@@ -15,7 +16,7 @@
 
     <!-- START Final/End Screen -->
     <div id="end-game-div" v-else-if="screen === 'end'">
-      <div class="site-page-div col-12 w-75 mx-auto text-center">
+<!--      <div class="site-page-div col-12 w-75 mx-auto text-center">
         <h3 class="times-up-note fw-bold">
           TIME'S UP!!!
         </h3>
@@ -32,9 +33,14 @@
         <PlayButton id="anagram-play-again-btn"
                     class="btn"
                     name="play"
-                    value="Play Again!" />
+                    value="Play Again!"
+                    :wordLength="wordLength"
+                    :handle-click="togglePlayScreen" />
         <BackToStartButton @click="toggleEndScreen" />
-      </div>
+      </div>-->
+      <EndScreen :word-length="wordLength"
+          :toggle-end-screen="toggleEndScreen"
+          :toggle-play-screen="togglePlayScreen" />
     </div> <!-- END Final/End Screen -->
 
   </main>
@@ -44,13 +50,13 @@
 import StartScreen from "@/components/StartScreen.vue";
 import PlayButton from "@/components/PlayButton.vue";
 import GameBoard from "@/components/GameBoard.vue";
-import BackToStartButton from "@/components/BackToStartButton.vue";
+import EndScreen from "@/components/EndScreen.vue";
 
 export default {
   name: "MainContainer",
 
   components: {
-    BackToStartButton,
+    EndScreen,
     StartScreen,
     PlayButton,
     GameBoard,
@@ -68,10 +74,17 @@ export default {
       this.wordLength = selection;
     },
 
+    // For the "Play" btn
     toggleStartScreen: function () {
       this.screen = this.screen === "start" ? "play" : "start";
     },
 
+    // For the "Play Again" btn
+    togglePlayScreen: function () {
+      this.screen = this.screen === "end" ? "play" : "end";
+    },
+
+    // For the "Back to Start" btn
     toggleEndScreen: function () {
       this.screen = this.screen === "end" ? "start" : "end";
     },
@@ -80,29 +93,12 @@ export default {
 </script>
 
 <style>
-h3.times-up-note {
-  color: rgb(224, 18, 128);
-  font-size: 2rem;
-}
-
-/* ie: "You found:" */
-p.final-score-header {
-  font-size: 2rem;
-}
-
-p.final-score {
-  color: darkblue;
-  font-size: 3rem;
-}
-
-#anagram-play-again-btn,
 #anagram-play-btn {
   background-color: green;
 }
 
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
-  #anagram-play-again-btn,
   #anagram-play-btn {
     width: 16rem !important;
     text-align: center;

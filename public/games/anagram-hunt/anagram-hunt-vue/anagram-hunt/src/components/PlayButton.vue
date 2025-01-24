@@ -11,7 +11,7 @@
             aria-label="Anagram Hunt Play button"
             alt="Click or tap to play Anagram Hunt"
             title="Anagram Hunt Play button"
-            @click="clickPlayBtn" >
+            @click="handleClick" >
       {{ value }}
     </button>
   </div>
@@ -36,14 +36,23 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    wordLength: {
+      type: String,
+      required: true,
+      default: "5", // Default to 5 for safety; 2d arr of anagrams only has 4 sublists named 5 - 8.
+    },
+    handleClick: {
+      type: Function,
+      required: true,
+    },
   },
 
-  emits: ["click"],
+  /*emits: ["click"],*/
 
   methods: {
-    clickPlayBtn() {
+    /*clickPlayBtn() {
       this.$emit("click");
-    },
+    },*/
   },
 });
 </script>
