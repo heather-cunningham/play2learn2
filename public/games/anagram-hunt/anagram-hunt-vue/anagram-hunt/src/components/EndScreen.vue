@@ -88,6 +88,9 @@ p.final-score {
   #anagram-play-again-btn {
     width: 16rem !important;
     text-align: center;
+  }
+
+  #anagram-play-again-btn {
     font-size: smaller;
   }
 }

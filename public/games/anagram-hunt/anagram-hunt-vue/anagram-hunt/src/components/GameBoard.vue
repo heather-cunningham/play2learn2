@@ -26,14 +26,26 @@
       </transition>
 
       <div id="answer-div" class="col-12 mb-4 p-0">
-        <input id="anagram-hunt-answer-input"
-               class="answer-input p-2 enabled"
-               type="text"
-               ref="inputRef"
-               placeholder="Enter anagram here"
-               alt="Type anagram here"
-               v-model="userAnswer"
-               @change="setAnswerInput"/>
+        <div class="input-wrapper">
+          <input id="anagram-hunt-answer-input"
+                 class="answer-input p-2 enabled"
+                 type="text"
+                 ref="inputRef"
+                 placeholder="Enter anagram here"
+                 title="Type anagram here and press, click, or tap Enter"
+                 alt="Type anagram here and press, click, or tap Enter"
+                 v-model="userAnswer"
+                 @change="setAnswerInput"/>
+          <button id="x-clear-btn"
+                  type="button"
+                  name="xclear"
+                  alt="Clear the input text box"
+                  title="Clear"
+                  value="&times;"
+                  @click="handleClickXClearBtn" >
+            &times;
+          </button>
+        </div>
       </div> <!-- END Anagram Question & Answer divs -->
 
       <EnterButton @click="handleClickEnterBtn"/>
@@ -195,6 +207,11 @@ export default defineComponent({
       this.focusInput();
     },
 
+    handleClickXClearBtn() {
+      this.userAnswer = "";
+      this.focusInput();
+    },
+
     handleClickQuitBtn() {
       this.resetGameBoard();
       this.toggleStartScreen();
@@ -270,6 +287,21 @@ export default defineComponent({
 </script>
 
 <style>
+.input-wrapper {
+  position: relative;
+  display: flex;
+}
+
+#anagram-hunt-answer-input {
+  flex: 1;
+}
+
+#x-clear-btn {
+  background: white;
+  border: 1px solid grey;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
 .score-form {
   width: 20rem;
   overflow: hidden;

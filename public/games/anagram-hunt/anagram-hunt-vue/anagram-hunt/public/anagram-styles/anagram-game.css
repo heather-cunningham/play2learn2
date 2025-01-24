@@ -21,6 +21,21 @@ html, body {
   font-weight: bold;
 }
 
+.input-wrapper {
+  position: relative;
+  display: flex;
+}
+
+#anagram-hunt-answer-input {
+  flex: 1;
+}
+
+#x-clear-btn {
+  background: white;
+  border: 1px solid grey;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
 .answer-input {
   width: 20rem;
   border: 1px solid grey;
@@ -236,6 +251,10 @@ p.final-score {
   #anagram-quit-btn {
     width: 16rem;
     text-align: center;
+  }
+  
+  #anagram-back-to-start-btn,
+  #anagram-play-again-btn {
     font-size: smaller;
   }
 }

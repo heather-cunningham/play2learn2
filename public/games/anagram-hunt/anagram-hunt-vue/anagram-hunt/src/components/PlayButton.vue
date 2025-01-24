@@ -81,6 +81,10 @@ export default defineComponent({
     width: 16rem;
     text-align: center;
   }
+
+  #anagram-play-again-btn {
+    font-size: smaller;
+  }
 } /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
 </style>
 

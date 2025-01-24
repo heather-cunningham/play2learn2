@@ -40,6 +40,9 @@ export default defineComponent({
   #anagram-back-to-start-btn {
     width: 16rem !important;
     text-align: center;
+  }
+
+  #anagram-back-to-start-btn {
     font-size: smaller;
   }
 }
