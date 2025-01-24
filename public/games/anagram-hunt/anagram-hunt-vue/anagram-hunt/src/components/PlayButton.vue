@@ -1,17 +1,18 @@
+<!--suppress CssUnusedSymbol -->
 <template>
   <div id="anagram-play-btn-div"
        class="site-page-div w-75 mx-auto mb-md-4 mb-sm-3 mb-3 my-0 d-flex justify-content-center
               align-items-center flex-wrap">
-    <button id="anagram-play-btn"
+    <button :id="id"
             class="btn"
             type="button"
-            name="anagram-hunt-play"
-            value="Play"
+            :name="name"
+            :value="value"
             aria-label="Anagram Hunt Play button"
             alt="Click or tap to play Anagram Hunt"
             title="Anagram Hunt Play button"
             @click="clickPlayBtn" >
-      Play!
+      {{ value }}
     </button>
   </div>
 </template>
@@ -21,7 +22,24 @@ import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: "PlayButton",
+
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
+  },
+
   emits: ["click"],
+
   methods: {
     clickPlayBtn() {
       this.$emit("click");
@@ -31,6 +49,7 @@ export default defineComponent({
 </script>
 
 <style>
+#anagram-play-again-btn,
 #anagram-play-btn {
   width: 20rem;
   height: 2.5rem;
@@ -43,10 +62,12 @@ export default defineComponent({
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
+#anagram-play-again-btn:hover,
 #anagram-play-btn:hover {
   background-color: gray;
 }
 
+#anagram-play-again-btn:active,
 #anagram-play-btn:active {
   background-color: gray;
   border: 2px inset white;
@@ -54,6 +75,7 @@ export default defineComponent({
 
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
+  #anagram-play-again-btn,
   #anagram-play-btn {
     width: 16rem;
     text-align: center;

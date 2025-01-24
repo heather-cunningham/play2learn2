@@ -18,7 +18,9 @@
                  for="anagram-hunt-answer-input"
                  class="question-lbl mb-1">
             {{ newAnagramWord }}
-            <span class="fw-normal">({{ numAnagramsLeft }} left)</span>
+            <span class="fw-normal" v-if="newAnagramWord !== gameOverMsg">
+              ({{ numAnagramsLeft }} left)
+            </span>
           </label>
         </div>
       </transition>
@@ -49,7 +51,7 @@ import GameTimer from "@/components/GameTimer.vue";
 import EnterButton from "@/components/EnterButton.vue";
 import UserAnswers from "@/components/UserAnswers.vue";
 import QuitButton from "@/components/QuitButton.vue";
-import {ANAGRAMS_LIST, removeElFromArray} from "@/assets/anagramsListHelpers";
+import {ANAGRAMS_LIST, GAME_OVER_MSG, removeElFromArray} from "@/assets/anagramsListHelpers";
 
 
 export default defineComponent({
@@ -61,7 +63,7 @@ export default defineComponent({
       required: true,
       default: "5", // Default to 5 for safety; 2d arr of anagrams only has 4 sublists named 5 - 8.
     },
-    toggleScreen: {
+    toggleStartScreen: {
       type: Function,
       required: true,
     },
@@ -78,7 +80,7 @@ export default defineComponent({
   data: ()=>{
     return {
       userScore: 0,
-      timeLeft: 60000,
+      timeLeft: 60,
       showNewWord: true,
       newAnagramWordList: [],
       newAnagramWord: "",
@@ -87,6 +89,7 @@ export default defineComponent({
       isAnswerCorrect: false,
       usersAnswerList: [],
       timerIntervalId: null,
+      gameOverMsg: GAME_OVER_MSG,
     }
   },
 
@@ -148,10 +151,10 @@ export default defineComponent({
           // Get the new length of newAnagramWordList for the # of remaining anagrams:
           this.numAnagramsLeft = this.newAnagramWordList.length;
         } else {
-          this.newAnagramWord = "Game Over!";
+          this.newAnagramWord = this.gameOverMsg;
         }
       } else {
-        this.newAnagramWord = "Game Over!";
+        this.newAnagramWord = this.gameOverMsg;
       }
     },
 
@@ -182,7 +185,7 @@ export default defineComponent({
 
     handleClickQuitBtn() {
       this.resetGameBoard();
-      this.toggleScreen();
+      this.toggleStartScreen();
     },
 
     checkAnswer(wordEntered){
@@ -192,12 +195,21 @@ export default defineComponent({
 
     startTimer(){
       if(this.timeLeft > 0){ // timeLeft = 60 initially
-        this.timerIntervalId = setInterval(()=> {--this.timeLeft},1000);
+        this.timerIntervalId = setInterval(
+            ()=> {
+              --this.timeLeft;
+              if(this.timeLeft === 0){
+                clearInterval(this.timerIntervalId);
+                this.newAnagramWord = this.gameOverMsg;
+              }
+            },
+            1000
+        );
       }
     },
 
-    stopTimer(timerIntervalId){
-      clearInterval(timerIntervalId);
+    stopTimer(){
+      clearInterval(this.timerIntervalId);
     },
 
     resetAnagram() {
@@ -212,14 +224,14 @@ export default defineComponent({
     },
 
     resetGameBoard(){
+      this.stopTimer();
       this.userScore = 0;
-      this.timeLeft = 60000;
+      this.timeLeft = 60;
       this.userAnswer = "";
       this.usersAnswerList = [];
       this.isAnswerCorrect = false;
       this.newAnagramWordList = [];
       this.newAnagramWord = "";
-      this.stopTimer(this.timerIntervalId);
     },
 
     checkIfGameOver(){

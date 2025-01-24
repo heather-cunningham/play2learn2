@@ -42,7 +42,35 @@ html, body {
   color: crimson;
 }
 
+#anagram-back-to-start-btn {
+  background-color: navy;
+}
+
+#anagram-play-again-btn,
+#anagram-play-btn,
 #anagram-enter-btn {
+  background-color: green;
+}
+
+.quit-btn {
+  background-color: red;
+}
+
+#anagram-back-to-start-btn,
+#anagram-play-again-btn,
+#anagram-play-btn {
+  width: 20rem;
+  height: 2.5rem;
+  color: white !important;
+  font-weight: bold;
+  font-size: larger;
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: 0.17rem 0.17rem 0.17rem grey;
+}
+
+#anagram-enter-btn,
+.quit-btn {
   height: 2.5rem;
   color: white;
   background-color: green;
@@ -53,23 +81,16 @@ html, body {
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
-.quit-btn {
-  height: 2.5rem;
-  color: white;
-  background-color: red;
-  font-weight: bold;
-  font-size: larger;
-  border: none;
-  border-radius: 0.3rem;
-  box-shadow: 0.17rem 0.17rem 0.17rem grey;
-}
-
+#anagram-back-to-start-btn:hover,
+#anagram-play-again-btn:hover,
 #anagram-play-btn:hover,
 .quit-btn:hover,
 #anagram-enter-btn:hover {
   background-color: gray;
 }
 
+#anagram-back-to-start-btn:active,
+#anagram-play-again-btn:active,
 #anagram-play-btn:active,
 .quit-btn:active,
 #anagram-enter-btn:active {
@@ -142,6 +163,8 @@ div.error {
 
 #anagram-quit-btn-div,
 #word-len-input,
+#anagram-back-to-start-btn,
+#anagram-play-again-btn,
 #anagram-play-btn,
 #question-div,
 #answer-div,
@@ -154,29 +177,17 @@ div.error {
 
 /* ------------------------------------ Final Screen CSS -------------------------------  */
 
-.final-screen {
-  text-align: center;
-}
-
-.site-page-div > p.times-up-note {
-  margin: 2rem;
-  padding: 0;
+h3.times-up-note {
   color: rgb(224, 18, 128);
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-/* ie: "Your final score is:" */
-.final-score-header {
-  margin: 1rem;
-  padding: 0;
-  font-weight: normal;
   font-size: 2rem;
 }
 
-.final-score {
-  margin: 2rem;
-  padding: 0;
+/* ie: "You found:" */
+p.final-score-header {
+  font-size: 2rem;
+}
+
+p.final-score {
   color: darkblue;
   font-size: 3rem;
 }
@@ -184,10 +195,6 @@ div.error {
 .apology {
   color: red;
   font-weight: bold;
-}
-
-.play-again-btn {
-  margin: 0.5rem auto 2.4rem;
 }
 
 /* ------------------------------------ Media Queries for Mobile Responsiveness -------------------------------  */
@@ -212,6 +219,8 @@ div.error {
 @media (max-width: 576px) {
   #anagram-quit-btn-div,
   #word-len-input,
+  #anagram-back-to-start-btn,
+  #anagram-play-again-btn,
   #anagram-play-btn,
   #anagram-score-lbl,
   #anagram-time-left-lbl,
@@ -227,6 +236,7 @@ div.error {
   #anagram-quit-btn {
     width: 16rem;
     text-align: center;
+    font-size: smaller;
   }
 }
 /* END Custom styles for Bootstrap small screens (576px wide) and smaller */
