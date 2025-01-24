@@ -81,6 +81,10 @@ export default defineComponent({
     QuitButton,
   },
 
+  emits: [
+    "updateFinalScore",
+  ],
+
   data: ()=>{
     return {
       userScore: 0,
@@ -147,7 +151,6 @@ export default defineComponent({
 
           const newAnagramIndex = Math.floor(Math.random() * this.newAnagramWordList.length);
           this.newAnagramWord = this.newAnagramWordList[newAnagramIndex];
-          console.log("#### newAnagramWord: " + this.newAnagramWord);
 
           // Remove the word, from which the user is to make anagrams, from the wordList
           if (this.newAnagramWordList.includes(this.newAnagramWord))
@@ -155,8 +158,6 @@ export default defineComponent({
 
           // Get the new length of newAnagramWordList for the # of remaining anagrams:
           this.numAnagramsLeft = this.newAnagramWordList.length;
-
-          console.log("#### Answers !!!! " + this.newAnagramWordList);
         } else {
           this.stopTimer();
           this.newAnagramWord = this.gameOverMsg;
@@ -255,6 +256,8 @@ export default defineComponent({
         // Add a wait before the end of the game to see the Game Over msg display first
         setTimeout(
             ()=> {
+              const FINAL_SCORE = this.userScore;
+              this.$emit("updateFinalScore", FINAL_SCORE);
               this.resetGameBoard();
               this.toggleEndScreen();
             },

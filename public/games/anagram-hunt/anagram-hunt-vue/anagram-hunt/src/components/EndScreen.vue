@@ -8,7 +8,7 @@
       You found:
     </p>
     <p class="final-score">
-      7
+      {{ finalScore }}
     </p>
     <p class="final-score-header">
       Anagrams
@@ -44,6 +44,10 @@ export default defineComponent({
       type: String,
       required: true,
       default: "5", // Default to 5 for safety; 2d arr of anagrams only has 4 sublists named 5 - 8.
+    },
+    finalScore: {
+      type: Number,
+      required: true,
     },
     toggleEndScreen: {
       type: Function,

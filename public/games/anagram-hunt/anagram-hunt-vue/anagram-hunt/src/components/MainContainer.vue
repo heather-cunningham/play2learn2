@@ -11,16 +11,17 @@
 
     <div id="play-game-div" v-else-if="screen === 'play'">
       <GameBoard :wordLength="wordLength"
+                 @update-final-score="updateFinalScore"
                  :toggle-start-screen="toggleStartScreen"
                  :toggle-end-screen="toggleEndScreen" />
     </div>
 
     <div id="end-game-div" v-else-if="screen === 'end'">
       <EndScreen :word-length="wordLength"
-          :toggle-end-screen="toggleEndScreen"
-          :toggle-play-screen="togglePlayScreen" />
+                 :final-score="finalScore"
+                 :toggle-end-screen="toggleEndScreen"
+                 :toggle-play-screen="togglePlayScreen" />
     </div>
-
   </main>
 </template>
 
@@ -44,12 +45,17 @@ export default {
     return {
       screen: "start",
       wordLength: "5", // default to 5 for safety
+      finalScore: 0,
     };
   },
 
   methods: {
     handleWordLenSelection(selection) {
       this.wordLength = selection;
+    },
+
+    updateFinalScore(userScore) {
+      this.finalScore = userScore;
     },
 
     // For the "Play" btn
