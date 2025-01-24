@@ -67,6 +67,10 @@ export default defineComponent({
       type: Function,
       required: true,
     },
+    toggleEndScreen: {
+      type: Function,
+      required: true,
+    },
   },
 
   components: {
@@ -143,6 +147,7 @@ export default defineComponent({
 
           const newAnagramIndex = Math.floor(Math.random() * this.newAnagramWordList.length);
           this.newAnagramWord = this.newAnagramWordList[newAnagramIndex];
+          console.log("#### newAnagramWord: " + this.newAnagramWord);
 
           // Remove the word, from which the user is to make anagrams, from the wordList
           if (this.newAnagramWordList.includes(this.newAnagramWord))
@@ -150,11 +155,17 @@ export default defineComponent({
 
           // Get the new length of newAnagramWordList for the # of remaining anagrams:
           this.numAnagramsLeft = this.newAnagramWordList.length;
+
+          console.log("#### Answers !!!! " + this.newAnagramWordList);
         } else {
+          this.stopTimer();
           this.newAnagramWord = this.gameOverMsg;
+          this.endGame();
         }
       } else {
+        this.stopTimer();
         this.newAnagramWord = this.gameOverMsg;
+        this.endGame();
       }
     },
 
@@ -189,8 +200,7 @@ export default defineComponent({
     },
 
     checkAnswer(wordEntered){
-      if(this.newAnagramWordList.includes(wordEntered))
-        return true;
+      return this.newAnagramWordList.includes(wordEntered);
     },
 
     startTimer(){
@@ -201,6 +211,7 @@ export default defineComponent({
               if(this.timeLeft === 0){
                 clearInterval(this.timerIntervalId);
                 this.newAnagramWord = this.gameOverMsg;
+                this.endGame();
               }
             },
             1000
@@ -209,6 +220,7 @@ export default defineComponent({
     },
 
     stopTimer(){
+      this.timeLeft = 0;
       clearInterval(this.timerIntervalId);
     },
 
@@ -234,14 +246,21 @@ export default defineComponent({
       this.newAnagramWord = "";
     },
 
-    checkIfGameOver(){
-      if(this.timeLeft === 0){
-        // do stuff
-      }
+    iSGameOver(){
+      return this.timeLeft === 0;
     },
 
     endGame(){
-      // do stuff
+      if(this.iSGameOver()) {
+        // Add a wait before the end of the game to see the Game Over msg display first
+        setTimeout(
+            ()=> {
+              this.resetGameBoard();
+              this.toggleEndScreen();
+            },
+        2000
+        );
+      }
     },
   },//end methods
 });

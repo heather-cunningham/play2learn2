@@ -46,14 +46,6 @@ export default defineComponent({
       required: true,
     },
   },
-
-  /*emits: ["click"],*/
-
-  methods: {
-    /*clickPlayBtn() {
-      this.$emit("click");
-    },*/
-  },
 });
 </script>
 

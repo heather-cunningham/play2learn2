@@ -11,37 +11,15 @@
 
     <div id="play-game-div" v-else-if="screen === 'play'">
       <GameBoard :wordLength="wordLength"
-                 :toggle-start-screen="toggleStartScreen" />
+                 :toggle-start-screen="toggleStartScreen"
+                 :toggle-end-screen="toggleEndScreen" />
     </div>
 
-    <!-- START Final/End Screen -->
     <div id="end-game-div" v-else-if="screen === 'end'">
-<!--      <div class="site-page-div col-12 w-75 mx-auto text-center">
-        <h3 class="times-up-note fw-bold">
-          TIME'S UP!!!
-        </h3>
-        <p class="final-score-header">
-          You found:
-        </p>
-        <p class="final-score">
-          7
-        </p>
-        <p class="final-score-header">
-          Anagrams
-        </p>
-
-        <PlayButton id="anagram-play-again-btn"
-                    class="btn"
-                    name="play"
-                    value="Play Again!"
-                    :wordLength="wordLength"
-                    :handle-click="togglePlayScreen" />
-        <BackToStartButton @click="toggleEndScreen" />
-      </div>-->
       <EndScreen :word-length="wordLength"
           :toggle-end-screen="toggleEndScreen"
           :toggle-play-screen="togglePlayScreen" />
-    </div> <!-- END Final/End Screen -->
+    </div>
 
   </main>
 </template>
@@ -64,7 +42,7 @@ export default {
 
   data() {
     return {
-      screen: "end",
+      screen: "start",
       wordLength: "5", // default to 5 for safety
     };
   },
@@ -75,18 +53,24 @@ export default {
     },
 
     // For the "Play" btn
-    toggleStartScreen: function () {
+    toggleStartScreen() {
       this.screen = this.screen === "start" ? "play" : "start";
     },
 
     // For the "Play Again" btn
-    togglePlayScreen: function () {
+    togglePlayScreen() {
       this.screen = this.screen === "end" ? "play" : "end";
     },
 
     // For the "Back to Start" btn
-    toggleEndScreen: function () {
-      this.screen = this.screen === "end" ? "start" : "end";
+    toggleEndScreen() {
+      if(this.screen === "end"){
+        this.screen = "start";
+      } else if (this.screen === "play") {
+        this.screen = "end";
+      } else {
+        this.screen = "end";
+      }
     },
   },
 };

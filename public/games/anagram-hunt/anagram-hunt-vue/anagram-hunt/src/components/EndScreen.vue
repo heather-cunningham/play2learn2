@@ -55,8 +55,10 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    timesUpNote: ()=> TIMES_UP_STR,
+  data: ()=> {
+    return {
+      timesUpNote: TIMES_UP_STR,
+    };
   },
 });
 </script>
