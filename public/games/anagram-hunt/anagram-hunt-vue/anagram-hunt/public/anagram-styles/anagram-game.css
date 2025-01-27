@@ -15,6 +15,11 @@ html, body {
   color: red;
 }
 
+#word-len-lbl {
+  font-size: 1.2rem;
+  color: rgb(224, 18, 128);
+}
+
 /* ------------------------------------ CSS for playing Anagram Hunt -------------------------------  */
 .question-lbl {
   font-size: 1.5rem;
@@ -207,11 +212,6 @@ p.final-score {
   font-size: 3rem;
 }
 
-.apology {
-  color: red;
-  font-weight: bold;
-}
-
 /* ------------------------------------ Media Queries for Mobile Responsiveness -------------------------------  */
 /* BEGIN @media (max-width: 1370px)
 ~ Landscape width of a 13" Surface Pro tablet or an iPad Pro */
@@ -226,6 +226,10 @@ p.final-score {
   .game-rules-list-div {
     width: 75%;
     height: auto;
+  }
+  
+  #anagram-hunt-select-div {
+    flex-direction: column;
   }
 }
 /* END Custom styles for Bootstrap medium screens (768px wide) and smaller */

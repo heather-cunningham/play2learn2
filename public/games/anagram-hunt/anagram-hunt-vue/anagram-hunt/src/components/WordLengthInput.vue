@@ -97,6 +97,7 @@ export default defineComponent({
 <style scoped>
 #word-len-lbl {
   font-size: 1.2rem;
+  color: rgb(224, 18, 128);
 }
 
 #word-len-input {
