@@ -1,5 +1,8 @@
 <template>
   <div id="anagram-hunt-start" class="site-page-div col-12 w-75 mx-auto">
+    <div v-if="showError" class="error col-12 mx-auto text-center">
+      {{ selectErrorMsg }}
+    </div>
     <WordLengthInput id="word-len-input"
                      label="Word Length"
                      label-id="word-len-lbl"
@@ -10,7 +13,7 @@
     <PlayButton id="anagram-play-btn"
             name="play"
             value="Play!"
-            :handle-click="toggleStartScreen"
+            :handle-click="handleSubmission"
             :wordLength="wordLength" />
   </div>
 </template>
@@ -20,7 +23,7 @@ import {defineComponent} from 'vue';
 import WordLengthInput from "@/components/WordLengthInput.vue";
 import GameRules from "@/components/GameRules.vue";
 import PlayButton from "@/components/PlayButton.vue";
-import {WORD_LEN_DFLT_MSG} from "@/assets/anagramsListHelpers.js";
+import {SELECT_ERROR_MSG, WORD_LEN_DFLT_MSG} from "@/assets/anagramsListHelpers.js";
 
 export default defineComponent({
   name: "StartScreen",
@@ -37,6 +40,8 @@ export default defineComponent({
     },
   },
 
+  emits: ["selection"],
+
   components: {
     WordLengthInput,
     GameRules,
@@ -52,19 +57,42 @@ export default defineComponent({
         "8",
       ],
       wordLenChosen: WORD_LEN_DFLT_MSG,
+      selectErrorMsg: SELECT_ERROR_MSG,
+      okToSubmitForm: null,
     };
+  },
+
+  computed: {
+    showError() {
+      return this.okToSubmitForm === false && this.wordLenChosen === WORD_LEN_DFLT_MSG;
+    },
   },
 
   methods: {
     setWordLenChosen(value) {
       this.wordLenChosen = value;
-      this.$emit('selection', value);
+      this.$emit("selection", value);
+    },
+
+    handleSubmission(event){
+      if(this.wordLenChosen !== WORD_LEN_DFLT_MSG){
+        this.okToSubmitForm = true;
+        this.toggleStartScreen();
+      } else {
+        event.preventDefault();
+        this.okToSubmitForm = false;
+      }
     },
   },
 });
 </script>
 
 <style>
+div.error {
+  font-style: italic;
+  color: red;
+}
+
 #anagram-play-btn {
   background-color: green;
 }

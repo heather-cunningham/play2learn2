@@ -1,4 +1,5 @@
 const WORD_LEN_DFLT_MSG = "Select a # from 5 - 8";
+const SELECT_ERROR_MSG = "You must select one:";
 const GAME_OVER_MSG = "Game Over!";
 const TIMES_UP_STR = "TIME'S UP!!!";
 
@@ -183,6 +184,7 @@ const ANAGRAMS_LIST = {
 
 export {
   WORD_LEN_DFLT_MSG,
+  SELECT_ERROR_MSG,
   GAME_OVER_MSG,
   TIMES_UP_STR,
   HIGH_SCORE_OBJ,
