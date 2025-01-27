@@ -78,7 +78,8 @@ html, body {
 
 #anagram-back-to-start-btn,
 #anagram-play-again-btn,
-#anagram-play-btn {
+#anagram-play-btn,
+.quit-btn {
   width: 20rem;
   height: 2.5rem;
   color: white !important;
@@ -89,8 +90,7 @@ html, body {
   box-shadow: 0.17rem 0.17rem 0.17rem grey;
 }
 
-#anagram-enter-btn,
-.quit-btn {
+#anagram-enter-btn {
   height: 2.5rem;
   color: white;
   background-color: green;

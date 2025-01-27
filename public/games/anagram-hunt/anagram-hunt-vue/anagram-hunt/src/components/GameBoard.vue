@@ -310,7 +310,8 @@ export default defineComponent({
 #anagram-question-answer-div,
 #question-div,
 #answer-div,
-.answer-input {
+.answer-input,
+.quit-btn {
   width: 20rem;
 }
 
@@ -329,12 +330,17 @@ export default defineComponent({
   opacity: 0;
 }
 
+.quit-btn {
+  background-color: red;
+}
+
 /* Custom styles for Bootstrap small screens (576px wide) and smaller */
 @media (max-width: 576px) {
   #anagram-question-answer-div,
   #question-div,
   #answer-div,
-  .answer-input {
+  .answer-input,
+  .quit-btn {
     width: 16rem;
     text-align: center;
   }
