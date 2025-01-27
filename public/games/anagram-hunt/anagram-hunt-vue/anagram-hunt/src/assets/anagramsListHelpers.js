@@ -10,25 +10,6 @@ const removeElFromArray = (arr, indexToRemove)=>{
   return arr;
 };
 
-const HIGH_SCORE_OBJ = {
-  five: {
-    length: 9,
-    highscore: 25
-  },
-  six: {
-    length: 5,
-    highscore: 19
-  },
-  seven: {
-    length: 5,
-    highscore: 16
-  },
-  eight: {
-    length: 4,
-    highscore: 13
-  }
-};
-
 const ANAGRAMS_LIST = {
   5: [ // length 9, high score = 25
       [
@@ -187,7 +168,6 @@ export {
   SELECT_ERROR_MSG,
   GAME_OVER_MSG,
   TIMES_UP_STR,
-  HIGH_SCORE_OBJ,
   ANAGRAMS_LIST,
   removeElFromArray
 };
