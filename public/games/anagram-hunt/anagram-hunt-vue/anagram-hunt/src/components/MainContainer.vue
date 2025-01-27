@@ -1,12 +1,9 @@
 <template>
   <main id="anagram-hunt" class="flex-grow-1">
     <div id="start-game-div" v-if="screen === 'start'">
-      <StartScreen @selection="handleWordLenSelection" />
-      <PlayButton id="anagram-play-btn"
-                  name="play"
-                  value="Play!"
-                  :handle-click="toggleStartScreen"
-                  :wordLength="wordLength" />
+      <StartScreen @selection="handleWordLenSelection"
+                   :wordLength="wordLength"
+                   :toggle-start-screen="toggleStartScreen" />
     </div>
 
     <div id="play-game-div" v-else-if="screen === 'play'">
@@ -27,7 +24,6 @@
 
 <script>
 import StartScreen from "@/components/StartScreen.vue";
-import PlayButton from "@/components/PlayButton.vue";
 import GameBoard from "@/components/GameBoard.vue";
 import EndScreen from "@/components/EndScreen.vue";
 
@@ -35,10 +31,9 @@ export default {
   name: "MainContainer",
 
   components: {
-    EndScreen,
     StartScreen,
-    PlayButton,
     GameBoard,
+    EndScreen,
   },
 
   data() {
@@ -81,22 +76,6 @@ export default {
   },
 };
 </script>
-
-<style>
-#anagram-play-btn {
-  background-color: green;
-}
-
-/* Custom styles for Bootstrap small screens (576px wide) and smaller */
-@media (max-width: 576px) {
-  #anagram-play-btn {
-    width: 16rem !important;
-    text-align: center;
-    font-size: smaller;
-  }
-}
-/* END Custom styles for Bootstrap small screens (576px wide) and smaller */
-</style>
 
 <style src="../../public/anagram-styles/anagram-normalize.css"></style>
 <style src="../../public/anagram-styles/anagram-style.css"></style>
