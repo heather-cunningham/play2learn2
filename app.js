@@ -145,8 +145,8 @@ app.use(
 
 
 // ------------------------------------------ App listening port ------------------------------------------------
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
   console.log("Express / Node.js app running on port: " + port);
-}); // port = 8081
+}); // port = 8088
