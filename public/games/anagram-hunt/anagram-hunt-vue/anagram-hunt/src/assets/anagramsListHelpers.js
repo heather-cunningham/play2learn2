@@ -11,13 +11,14 @@ const removeElFromArray = (arr, indexToRemove)=>{
 };
 
 const ANAGRAMS_LIST = {
-  5: [ // length 9, high score = 25
+  5: [ // length 9, high score = 26
       [
         "abets",
         "baste",
         "betas",
         "beast",
-        "beats"
+        "beats",
+        "bates"
       ],
       [
         "acres",
