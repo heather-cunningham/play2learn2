@@ -4,17 +4,18 @@ const path = require("path");
 const fs = require("fs");
 const app = express();
 
+
 // Middleware to set the correct MIME type
 app.use(async (request, result,
-               next)=>{
-  const mime = await import('mime');
-  const type= mime.default.getType(request.path);
-  
-  if(type){
-    result.setHeader("Content-Type", type);
-  }
-  
-  next();
+               next) => {
+    const mime = await import('mime');
+    const type= mime.default.getType(request.path);
+    
+    if(type){
+      result.setHeader("Content-Type", type);
+    }
+    
+    next();
 });
 
 // Serve static files from the Node.js app directory
@@ -28,10 +29,8 @@ app.use('/games/anagram-hunt/anagram-hunt-vue/anagram-hunt', express.static(
   path.join(__dirname, 'public', 'games', 'anagram-hunt', 'anagram-hunt-vue', 'anagram-hunt', 'dist'))
 );
 
-
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
 
 // ------------------------------------------ Node.js Homepage ------------------------------------------------
 // Node.js routing:
@@ -134,6 +133,16 @@ app.get("/math-facts-final-screen",
       response.status(400).send('Missing jsonStr query parameter');
     }
   });
+
+// ------------------------------------------ Error Handling Middleware -----------------------------------------------
+app.use(
+  (err, req, res, next) =>
+  {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
+    next();
+});
+
 
 // ------------------------------------------ App listening port ------------------------------------------------
 const port = process.env.PORT || 8081;
